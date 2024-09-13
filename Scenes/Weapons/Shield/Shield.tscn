@@ -1,0 +1,307 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Scenes/Weapons/WeaponBase/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/SpriteSheets/Weapons/Shield/Sprite-weapon-shield.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/SpriteSheets/Weapons/Shield/mini_shield.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Weapons/Shield/Shield.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Weapons/Shield/GHurtbox.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Weapons/Shield/PHurtbox.gd" type="Script" id=6]
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 27 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "Deflect",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 14.5625, 12 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 5.5, 14 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "Attack"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "playSFX"
+} ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Cancel"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Deflect"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Deflect" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[node name="Shield" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+weapon_type = 3
+durability = 10
+original_cd = 0.3
+weapon_icon = ExtResource( 3 )
+item_name = "Shield Lv.1"
+
+[node name="AnimatedSprite" parent="Node2D" index="0"]
+visible = false
+position = Vector2( 12, 0 )
+frames = SubResource( 12 )
+animation = "Attack"
+offset = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" parent="Node2D/AnimatedSprite/Hitbox" index="0"]
+position = Vector2( 0, 0 )
+
+[node name="GHurtbox" type="Area2D" parent="Node2D/AnimatedSprite" index="1"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource( 5 )
+knockback_force = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AnimatedSprite/GHurtbox" index="0"]
+position = Vector2( 8.4375, 0 )
+shape = SubResource( 18 )
+disabled = true
+
+[node name="PHurtbox" type="Area2D" parent="Node2D/AnimatedSprite" index="2"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AnimatedSprite/PHurtbox" index="0"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 19 )
+disabled = true
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Attack = SubResource( 13 )
+anims/Cancel = SubResource( 14 )
+anims/Deflect = SubResource( 17 )
+anims/RESET = SubResource( 15 )
+
+[node name="Cooldown" parent="." index="2"]
+wait_time = 0.3
+
+[node name="WeaponIcon" parent="." index="3"]
+texture = ExtResource( 3 )
+
+[connection signal="draw" from="." to="Node2D/AnimatedSprite/GHurtbox" method="_on_Shield_draw"]
+[connection signal="draw" from="." to="Node2D/AnimatedSprite/PHurtbox" method="_on_Shield_draw"]
+[connection signal="hide" from="." to="Node2D/AnimatedSprite/GHurtbox" method="_on_Shield_hide"]
+[connection signal="hide" from="." to="Node2D/AnimatedSprite/PHurtbox" method="_on_Shield_hide"]

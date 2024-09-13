@@ -1,0 +1,95 @@
+Belu's Dungeon 0.9.15
+
+CHANGES:
+- Added new dungeon track
+- Added splash screen
+- Updated UI controls
+- Fixed game crash when repeatedly switch weapons
+- Fixed bug where boss cannot find path after waking up near spikes
+
+Belu's Dungeon 0.9.14
+
+CHANGES:
+- Added Zombie ogre
+- Added flamethrower traps
+- Added Boss intro
+- Added Boss weapon special attacks
+- Added Boss shield dash animation
+- Added tracks: Title, Shop, Healing Room
+- Boss can now dash towards player
+- Boss will now switch to bow if far from player
+- Updated floor tile set
+- Updated sprites(obstacles)
+- Boss special eyes animation now plays twice before attacking
+- Enemies are no longer visible when holding shield
+- Weapon pot now guarantees higher level weapons
+- Enemies and traps are disables when player dies
+- Enemy path timer now stops when dying
+- Some methods are set to call deferred
+- Fixed Options menu incorrectly displaying on/off
+- Fixed music bug
+
+Belu's Dungeon 0.9.13
+
+CHANGES:
+- Added Main Menu, updated
+- Added Ending Screen
+- Added How To Play screen to Options
+- Updated sprites (enemies, weapons, boss weapons, power ups)
+- Doors now act as interactable
+- Quit option in Pause Menu is now changed to Return to Main Menu
+- Pressing Esc on Game Over screen now returns to Main Menu
+- Enemies get stronger according to the number of rooms cleared
+- Enemies have varying aim
+- Added traps to boss room
+- Unlocking boss room now updates the map
+- Enemy adjustments
+- Weapon adjustments (knife)
+- UI updates (Scores moved to right, HP animation on UI, bottom text moved to bottom right)
+- Other minor changes
+
+
+Belu's Dungeon 0.9.12
+
+CHANGES:
+- Final Boss added
+- Knife added
+- Interact indicator added
+- The dungeon now starts generating rooms at the middle of the map instead of the bottom
+- Map doesn't show adjacent rooms when entering
+- Power-up display added in the pause menu
+- Holding weapons are now carried over to next floor
+- High-score saving and loading
+- Number of holding keys are now shown on the UI
+- Sprite updates
+- SFX updates
+- Level adjustments
+- Code changes and bug fixes
+
+
+Belu's Dungeon 0.9.11
+
+CHANGES:
+- Bonus Strength power-up added
+- Weapon Pot power-up added
+- Armor added
+- Armor Indicator on UI added
+- Description texts for weapons and power-ups added
+- Reward chests now include weapons and power-ups
+- Enemy adjustments
+- Other minor changes
+
+
+Belu's Dungeon 0.9.10
+
+CHANGES:
+- Enemies now use A-Star pathfinding in addition to regular pathfinding
+- Dash power-up added
+- Revive power-up added
+- Tank Enemy added
+- Score system added
+- Pause Menu and Options Menu added
+- Game Over screen added
+- A chest containing gold now spawns when a player clears a room. A key to the boss room is inserted in one of these chests.
+- Multiple UI updates
+- Multiple sound effects added

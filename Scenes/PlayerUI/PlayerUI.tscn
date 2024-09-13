@@ -1,0 +1,877 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/Map/map_bg_1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Map/Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PlayerUI/CanvasLayer.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/PlayerUI/WeaponSlot/WeaponSlots.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PlayerUI/Health/Health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerUI/Gold/Gold.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scenes/PlayerUI/Score/Score.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/PlayerUI/GameOver/GameOver.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/PlayerUI/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/PlayerUI/PauseMenu/PauseMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/BossIntro/boss_intro_prince.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/PlayerUI/Armor/ArmorU.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/PlayerUI/BottomText/BottomText.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/PlayerUI/BottomText/BottomText.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/PlayerUI/Score/HighScore.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/PlayerUI/Keys/Keys.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/PlayerUI/HTPMenu/HTPMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/PlayerUI/RTMMMenu/RTMMMenu.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/BossIntro/boss_intro_boss.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/BossIntro/boss_intro_border_top.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/BossIntro/boss_intro_border_bottom.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/BossIntro/boss_intro_bg.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/PlayerUI/BossIntro/BossIntro.gd" type="Script" id=24]
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Drop"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 170, -32 ), Vector2( 170, 40 ), Vector2( 170, 40 ), Vector2( 170, -32 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 170, -32 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 23 )
+region = Rect2( 0, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 23 )
+region = Rect2( 640, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 23 )
+region = Rect2( 1280, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 23 )
+region = Rect2( 1920, 0, 640, 360 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 21 )
+region = Rect2( 640, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 21 )
+region = Rect2( 1280, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 21 )
+region = Rect2( 1920, 0, 640, 360 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 22 )
+region = Rect2( 640, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 22 )
+region = Rect2( 1280, 0, 640, 360 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 22 )
+region = Rect2( 1920, 0, 640, 360 )
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=29]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=27]
+resource_name = "IntroPlay"
+length = 3.3
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("IntroBG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("IntroPrince:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, 180 ), Vector2( -40, 180 ), Vector2( 320, 180 ), Vector2( 320, 180 ), Vector2( -40, 180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("IntroBoss:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 180 ), Vector2( 680, 180 ), Vector2( 320, 180 ), Vector2( 320, 180 ), Vector2( 680, 180 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("IntroBannerTop:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 0 ), Vector2( 320, 0 ), Vector2( 320, 180 ), Vector2( 320, 180 ), Vector2( 320, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("IntroBannerBottom:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 320 ), Vector2( 320, 320 ), Vector2( 320, 180 ), Vector2( 320, 180 ), Vector2( 320, 320 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("IntroBG:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("IntroBannerTop:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("IntroBannerBottom:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("IntroBannerBottom/BossTitle:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 440, 450 ), Vector2( 440, 450 ), Vector2( 440, 310 ), Vector2( 440, 310 ), Vector2( 440, 450 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("IntroBG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("IntroPrince:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -40, 180 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("IntroBoss:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 680, 180 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("IntroBannerTop:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("IntroBannerBottom:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 320 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("IntroBG:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("IntroBannerTop:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("IntroBannerBottom:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("IntroBannerBottom/BossTitle:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 440, 450 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MapContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Health:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Gold:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Keys:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Score:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HighScore:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WeaponSlots:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "ShowUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("MapContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Health:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gold:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Keys:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Score:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HighScore:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("WeaponSlots:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "from_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "from_black_long"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "from_white"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "to_white"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="PlayerUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 3 )
+
+[node name="MapContainer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -72.0
+margin_top = 12.0
+margin_right = -12.0
+margin_bottom = 72.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapBackground" type="TextureRect" parent="CanvasLayer/MapContainer"]
+margin_right = 60.0
+margin_bottom = 60.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+
+[node name="Map" parent="CanvasLayer/MapContainer" instance=ExtResource( 2 )]
+position = Vector2( 24, 24 )
+
+[node name="Health" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="ArmorU" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
+margin_top = 41.0
+margin_bottom = 73.0
+
+[node name="Gold" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 568, 80 )
+
+[node name="Keys" parent="CanvasLayer" instance=ExtResource( 17 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 568, 105 )
+
+[node name="RoomName" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 170.0
+margin_top = -32.0
+margin_right = 470.0
+margin_bottom = -2.0
+grow_horizontal = 2
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 5 )
+text = "Room Name"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RoomName"]
+anims/Drop = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_top = 12.0
+margin_right = -80.0
+margin_bottom = 19.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 4 )
+text = "Score: 0"
+align = 2
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_top = 26.0
+margin_right = -80.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 4 )
+text = "High Score: 0"
+align = 1
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponSlots" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="BottomText" parent="CanvasLayer" instance=ExtResource( 14 )]
+visible = false
+margin_left = -120.0
+margin_right = 280.0
+script = ExtResource( 15 )
+
+[node name="BossIntro" type="Node2D" parent="CanvasLayer"]
+pause_mode = 1
+visible = false
+script = ExtResource( 24 )
+
+[node name="IntroBG" type="AnimatedSprite" parent="CanvasLayer/BossIntro"]
+modulate = Color( 1, 1, 1, 0 )
+frames = SubResource( 16 )
+frame = 2
+offset = Vector2( 320, 180 )
+
+[node name="IntroPrince" type="Sprite" parent="CanvasLayer/BossIntro"]
+texture = ExtResource( 12 )
+offset = Vector2( -40, 180 )
+
+[node name="IntroBannerTop" type="AnimatedSprite" parent="CanvasLayer/BossIntro"]
+frames = SubResource( 21 )
+frame = 1
+offset = Vector2( 320, 0 )
+
+[node name="IntroBoss" type="Sprite" parent="CanvasLayer/BossIntro"]
+texture = ExtResource( 20 )
+offset = Vector2( 680, 180 )
+
+[node name="IntroBannerBottom" type="AnimatedSprite" parent="CanvasLayer/BossIntro"]
+frames = SubResource( 26 )
+frame = 2
+offset = Vector2( 320, 320 )
+
+[node name="BossTitle" type="Label" parent="CanvasLayer/BossIntro/IntroBannerBottom"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 440.0
+margin_top = 450.0
+margin_right = 622.0
+margin_bottom = 480.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 29 )
+text = "VS. BELU KING"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BossIntro"]
+anims/IntroPlay = SubResource( 27 )
+anims/RESET = SubResource( 28 )
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 11 )]
+margin_top = 120.0
+margin_bottom = 150.0
+
+[node name="OptionsMenu" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="HTPMenu" parent="CanvasLayer" instance=ExtResource( 18 )]
+
+[node name="RTMMMenu" parent="CanvasLayer" instance=ExtResource( 19 )]
+margin_left = 255.0
+margin_top = 120.0
+margin_right = 389.0
+margin_bottom = 150.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+anims/RESET = SubResource( 1 )
+anims/ShowUI = SubResource( 11 )
+anims/from_black = SubResource( 2 )
+anims/from_black_long = SubResource( 10 )
+anims/from_white = SubResource( 9 )
+anims/to_black = SubResource( 3 )
+anims/to_white = SubResource( 8 )
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 9 )]
+
+[node name="FPSCounter" type="Label" parent="CanvasLayer"]
+visible = false
+margin_right = 61.0
+margin_bottom = 24.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.254902, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "60"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="CanvasLayer/BossIntro/AnimationPlayer" to="CanvasLayer/BossIntro" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="CanvasLayer/BossIntro/AnimationPlayer" to="CanvasLayer/BossIntro" method="_on_AnimationPlayer_animation_started"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="CanvasLayer" method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,183 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Spear/Spear.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scenes/Weapons/WeaponBase/Weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/SpriteSheets/Weapons/Spear/Sprite_mini_weapon_spear.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=8]
+height = 28.0
+
+[sub_resource type="Animation" id=9]
+resource_name = "Attack"
+length = 0.4
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.16, 0.32 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.16 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "playSFX"
+} ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Cancel0"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "RESET0"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/AnimatedSprite/Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 8.0
+height = 22.0
+
+[node name="Spear" instance=ExtResource( 2 )]
+weapon_type = 1
+original_cd = 0.4
+weapon_icon = ExtResource( 3 )
+item_name = "Spear Lv.1"
+
+[node name="AnimatedSprite" parent="Node2D" index="0"]
+visible = false
+rotation = 0.785398
+frames = ExtResource( 1 )
+animation = "Attack"
+offset = Vector2( 20, -24 )
+
+[node name="CollisionShape2D" parent="Node2D/AnimatedSprite/Hitbox" index="0"]
+position = Vector2( 28, -32 )
+rotation = 0.785398
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Attack = SubResource( 9 )
+anims/Cancel = SubResource( 12 )
+anims/RESET = SubResource( 10 )
+
+[node name="Cooldown" parent="." index="2"]
+wait_time = 0.4
+
+[node name="WeaponIcon" parent="." index="3"]
+rotation = 0.785398
+texture = ExtResource( 3 )
+
+[node name="PlayerDetector" parent="." index="4"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" parent="PlayerDetector" index="0"]
+shape = SubResource( 11 )

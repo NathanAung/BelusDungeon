@@ -1,0 +1,425 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/PlayerUI/MainMenu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PlayerUI/MainMenu/MainMenuCanvas.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/PlayerUI/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PlayerUI/QuitMenu/QuitMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerUI/MainMenu/CreditsMenu.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/PlayerUI/HTPMenu/HTPMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Misc/belu-dungeon-logo.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=20]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="Animation" id=25]
+resource_name = "FadeIn"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/MainMenu/Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/MainMenu/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/MainMenu/ButtonMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/MainMenu/Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/MainMenu/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/MainMenu/ButtonMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/MainMenu/Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/MainMenu/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/MainMenu/ButtonMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="MainMenuCanvas" type="CanvasLayer"]
+layer = 0
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Control" parent="Control"]
+margin_left = 440.0
+margin_top = 170.0
+margin_right = 440.0
+margin_bottom = 170.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/MainMenu"]
+visible = false
+show_behind_parent = true
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 120.0
+margin_bottom = 110.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMenu" type="VBoxContainer" parent="Control/MainMenu"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 100.0
+grow_horizontal = 2
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+margin_right = 80.0
+margin_bottom = 15.0
+focus_neighbour_top = NodePath("../QuitBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Play"
+
+[node name="OptionsBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+margin_top = 25.0
+margin_right = 80.0
+margin_bottom = 40.0
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Options"
+
+[node name="CreditsBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+margin_top = 50.0
+margin_right = 80.0
+margin_bottom = 65.0
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Credits"
+
+[node name="QuitBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+margin_top = 75.0
+margin_right = 80.0
+margin_bottom = 90.0
+focus_neighbour_bottom = NodePath("../PlayBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Quit"
+
+[node name="TitleT" type="Label" parent="Control/MainMenu"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -280.5
+margin_top = -90.0
+margin_right = 40.5
+margin_bottom = -45.0
+grow_horizontal = 2
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "BELU'S DUNGEON"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Sprite" parent="Control/MainMenu"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -125, -67 )
+texture = ExtResource( 8 )
+
+[node name="OptionsMenu" parent="Control" instance=ExtResource( 4 )]
+margin_top = 112.0
+margin_bottom = 142.0
+
+[node name="QuitMenu" parent="Control" instance=ExtResource( 5 )]
+margin_top = 120.0
+margin_bottom = 150.0
+
+[node name="HTPMenu" parent="Control" instance=ExtResource( 7 )]
+
+[node name="CreditsMenu" type="Label" parent="Control"]
+visible = false
+margin_left = 272.0
+margin_top = 110.0
+margin_right = 368.0
+margin_bottom = 140.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 13 )
+text = "CREDITS"
+align = 1
+valign = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/CreditsMenu"]
+show_behind_parent = true
+margin_left = -42.0
+margin_right = 138.0
+margin_bottom = 140.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMenu" type="VBoxContainer" parent="Control/CreditsMenu"]
+margin_left = 8.0
+margin_top = 39.0
+margin_right = 88.0
+margin_bottom = 104.0
+grow_horizontal = 2
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits1" type="Label" parent="Control/CreditsMenu/ButtonMenu"]
+margin_right = 145.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 20 )
+text = "Programmer: Zayar Aung"
+align = 1
+
+[node name="Credits2" type="Label" parent="Control/CreditsMenu/ButtonMenu"]
+margin_top = 25.0
+margin_right = 145.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 20 )
+text = "Artist: Sai Laung Linn"
+align = 1
+
+[node name="Credits3" type="Label" parent="Control/CreditsMenu/ButtonMenu"]
+margin_top = 50.0
+margin_right = 145.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 20 )
+text = "Music: Paing Min Khant"
+align = 1
+
+[node name="BackBtn" type="Button" parent="Control/CreditsMenu/ButtonMenu"]
+margin_top = 75.0
+margin_right = 145.0
+margin_bottom = 90.0
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/disabled = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 25 )
+anims/FadeOut = SubResource( 26 )
+anims/RESET = SubResource( 27 )
+
+[connection signal="visibility_changed" from="Control/MainMenu" to="Control/MainMenu" method="_on_MainMenu_visibility_changed"]
+[connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/PlayBtn" to="Control/MainMenu" method="_on_PlayBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/PlayBtn" to="Control/MainMenu" method="_on_PlayBtn_mouse_entered"]
+[connection signal="pressed" from="Control/MainMenu/ButtonMenu/PlayBtn" to="Control/MainMenu" method="_on_PlayBtn_pressed"]
+[connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/OptionsBtn" to="Control/MainMenu" method="_on_OptionsBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/OptionsBtn" to="Control/MainMenu" method="_on_OptionsBtn_mouse_entered"]
+[connection signal="pressed" from="Control/MainMenu/ButtonMenu/OptionsBtn" to="Control/MainMenu" method="_on_OptionsBtn_pressed"]
+[connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/CreditsBtn" to="Control/MainMenu" method="_on_CreditsBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/CreditsBtn" to="Control/MainMenu" method="_on_CreditsBtn_mouse_entered"]
+[connection signal="pressed" from="Control/MainMenu/ButtonMenu/CreditsBtn" to="Control/MainMenu" method="_on_CreditsBtn_pressed"]
+[connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/QuitBtn" to="Control/MainMenu" method="_on_QuitBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/QuitBtn" to="Control/MainMenu" method="_on_QuitBtn_mouse_entered"]
+[connection signal="pressed" from="Control/MainMenu/ButtonMenu/QuitBtn" to="Control/MainMenu" method="_on_QuitBtn_pressed"]
+[connection signal="visibility_changed" from="Control/CreditsMenu" to="Control/CreditsMenu" method="_on_CreditsMenu_visibility_changed"]
+[connection signal="focus_entered" from="Control/CreditsMenu/ButtonMenu/BackBtn" to="Control/CreditsMenu" method="_on_BackBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/CreditsMenu/ButtonMenu/BackBtn" to="Control/CreditsMenu" method="_on_BackBtn_mouse_entered"]
+[connection signal="pressed" from="Control/CreditsMenu/ButtonMenu/BackBtn" to="Control/CreditsMenu" method="_on_BackBtn_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

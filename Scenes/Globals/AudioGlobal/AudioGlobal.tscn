@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Music/TitleLoop.mp3" type="AudioStream" id=1]
+[ext_resource path="res://SFX/Interactables/coin3.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Globals/AudioGlobal/AudioGlobal.gd" type="Script" id=4]
+
+[node name="AudioGlobal" type="AudioStreamPlayer"]
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = -10.0
+autoplay = true
+bus = "BGM"
+script = ExtResource( 4 )
+
+[node name="GoldSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 0.8
+bus = "SFX"
+
+[node name="DoorSFX" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
+
+[node name="UISFX" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+bus = "SFX"
+
+[connection signal="finished" from="." to="." method="_on_AudioGlobal_finished"]

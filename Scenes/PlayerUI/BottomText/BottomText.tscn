@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=8]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="BottomText" type="RichTextLabel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -30.0
+margin_right = 150.0
+margin_bottom = 10.0
+grow_horizontal = 2
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[right] Sample [color=lime] text [/color] [/right]"
+text = " Sample  text  "
+__meta__ = {
+"_edit_use_anchors_": false
+}

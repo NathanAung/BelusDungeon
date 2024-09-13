@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spike1.wav-bbc125e4fc332e53b2b46c8bd5356cce.sample"
+
+[deps]
+
+source_file="res://SFX/Environment/spike1.wav"
+dest_files=[ "res://.import/spike1.wav-bbc125e4fc332e53b2b46c8bd5356cce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

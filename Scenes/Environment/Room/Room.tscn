@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Environment/Door/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Environment/RoomTileMap/RoomMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Environment/Room/Room.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Characters/Bosses/WarriorOgre/FallingRock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Environment/Room/EnemyGen.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Effects/Explosion/Explosion.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Environment/Obstacle/Obstacle.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Environment/Room/ObstacleGen.gd" type="Script" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 325.5, 38.7812 )
+
+[node name="Room" type="Node2D"]
+z_index = -1
+script = ExtResource( 3 )
+
+[node name="EnemyGen" type="Node2D" parent="."]
+script = ExtResource( 8 )
+explosion_scene = ExtResource( 11 )
+
+[node name="Timer" type="Timer" parent="EnemyGen"]
+wait_time = 0.2
+
+[node name="ObstacleGen" type="Node2D" parent="."]
+script = ExtResource( 14 )
+obstacle_scene = ExtResource( 13 )
+falling_rock_scene = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="ObstacleGen"]
+wait_time = 0.1
+
+[node name="RoomMap" parent="." instance=ExtResource( 2 )]
+
+[node name="DoorN" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360, 100 )
+
+[node name="DoorS" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360, 340 )
+rotation = 3.14159
+door_dir = "south"
+
+[node name="DoorW" parent="." instance=ExtResource( 1 )]
+position = Vector2( 100, 220 )
+rotation = -1.5708
+door_dir = "west"
+
+[node name="DoorE" parent="." instance=ExtResource( 1 )]
+position = Vector2( 620, 220 )
+rotation = 1.5708
+door_dir = "east"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 359.5, 72.7812 )
+shape = SubResource( 1 )
+
+[connection signal="timeout" from="EnemyGen/Timer" to="EnemyGen" method="_on_Timer_timeout"]
+[connection signal="timeout" from="ObstacleGen/Timer" to="ObstacleGen" method="_on_Timer_timeout"]
+
+[editable path="DoorN"]
+[editable path="DoorS"]
+[editable path="DoorW"]
+[editable path="DoorE"]

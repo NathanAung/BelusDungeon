@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Environment/RoomTileMap/PitTileSet.tres" type="TileSet" id=1]
+
+[node name="Pits" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 40, 40 )
+cell_custom_transform = Transform2D( 40, 0, 0, 40, 0, 0 )
+collision_layer = 2
+collision_mask = 12
+format = 1
+tile_data = PoolIntArray( 131078, 0, 3, 131083, 0, 3, 196614, 0, 131075, 196619, 0, 131075, 327682, 0, 196608, 327683, 0, 196609, 327684, 0, 196609, 327685, 0, 196609, 327686, 0, 196610, 327691, 0, 196608, 327692, 0, 196609, 327693, 0, 196609, 327694, 0, 196609, 327695, 0, 196610, 458758, 0, 3, 458763, 0, 3, 524294, 0, 131075, 524299, 0, 131075 )

@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/SpriteSheets/Weapons/Bow/mini-weapons-bow-3p.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/Bow/Bow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/SpriteSheets/Weapons/Bow/Sprite-weapon-bow-3p.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 40, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 80, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 120, 0, 40, 40 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 8.0
+} ]
+
+[node name="Bow3" instance=ExtResource( 2 )]
+weapon_lvl = 3
+durability = 12
+original_cd = 0.2
+weapon_icon = ExtResource( 1 )
+item_name = "Bow Lv.3"
+price = 70
+arrow_speed = 750
+arrow_damage = 2.0
+
+[node name="AnimatedSprite" parent="Node2D" index="0"]
+frames = SubResource( 6 )
+
+[node name="WeaponIcon" parent="." index="3"]
+texture = ExtResource( 1 )

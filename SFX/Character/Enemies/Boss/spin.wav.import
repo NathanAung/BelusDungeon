@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spin.wav-0e28962a6cc50a23a2c7558c2a6288ff.sample"
+
+[deps]
+
+source_file="res://SFX/Character/Enemies/Boss/spin.wav"
+dest_files=[ "res://.import/spin.wav-0e28962a6cc50a23a2c7558c2a6288ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

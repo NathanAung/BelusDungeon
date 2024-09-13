@@ -1,0 +1,177 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/PlayerUI/OptionsMenu/OptionsMenu.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=18]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[node name="OptionsMenu" type="Label"]
+visible = false
+margin_left = 272.0
+margin_top = 120.0
+margin_right = 368.0
+margin_bottom = 150.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 5 )
+text = "OPTIONS"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -32.0
+margin_right = 128.0
+margin_bottom = 135.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMenu" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 39.0
+margin_right = 88.0
+margin_bottom = 104.0
+grow_horizontal = 2
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option1" type="HBoxContainer" parent="ButtonMenu"]
+margin_right = 107.0
+margin_bottom = 15.0
+custom_constants/separation = 45
+alignment = 1
+
+[node name="MusicText" type="Label" parent="ButtonMenu/Option1"]
+margin_right = 38.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 18 )
+text = "Music:"
+
+[node name="MusicToggleBtn" type="Button" parent="ButtonMenu/Option1"]
+margin_left = 83.0
+margin_right = 107.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 24, 0 )
+focus_neighbour_top = NodePath("../../BackBtn")
+focus_neighbour_bottom = NodePath("../../Option2/SFXToggleBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "ON"
+align = 2
+
+[node name="Option2" type="HBoxContainer" parent="ButtonMenu"]
+margin_top = 25.0
+margin_right = 107.0
+margin_bottom = 40.0
+custom_constants/separation = 45
+alignment = 1
+
+[node name="SFXText" type="Label" parent="ButtonMenu/Option2"]
+margin_right = 38.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 38, 0 )
+custom_fonts/font = SubResource( 18 )
+text = "SFX:"
+
+[node name="SFXToggleBtn" type="Button" parent="ButtonMenu/Option2"]
+margin_left = 83.0
+margin_right = 107.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 24, 0 )
+focus_neighbour_top = NodePath("../../Option1/MusicToggleBtn")
+focus_neighbour_bottom = NodePath("../../HowToPlay")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "ON"
+align = 2
+
+[node name="HowToPlay" type="Button" parent="ButtonMenu"]
+margin_top = 50.0
+margin_right = 107.0
+margin_bottom = 65.0
+focus_neighbour_top = NodePath("../Option2/SFXToggleBtn")
+focus_neighbour_bottom = NodePath("../BackBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "How To Play"
+
+[node name="BackBtn" type="Button" parent="ButtonMenu"]
+margin_top = 75.0
+margin_right = 107.0
+margin_bottom = 90.0
+focus_neighbour_top = NodePath("../HowToPlay")
+focus_neighbour_bottom = NodePath("../Option1/MusicToggleBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_OptionsMenu_visibility_changed"]
+[connection signal="focus_entered" from="ButtonMenu/Option1/MusicToggleBtn" to="." method="_on_MusicToggleBtn_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/Option1/MusicToggleBtn" to="." method="_on_MusicToggleBtn_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/Option1/MusicToggleBtn" to="." method="_on_MusicToggleBtn_pressed"]
+[connection signal="focus_entered" from="ButtonMenu/Option2/SFXToggleBtn" to="." method="_on_SFXToggleBtn_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/Option2/SFXToggleBtn" to="." method="_on_SFXToggleBtn_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/Option2/SFXToggleBtn" to="." method="_on_SFXToggleBtn_pressed"]
+[connection signal="focus_entered" from="ButtonMenu/HowToPlay" to="." method="_on_HowToPlay_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/HowToPlay" to="." method="_on_HowToPlay_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/HowToPlay" to="." method="_on_HowToPlay_pressed"]
+[connection signal="focus_entered" from="ButtonMenu/BackBtn" to="." method="_on_BackBtn_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/BackBtn" to="." method="_on_BackBtn_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/BackBtn" to="." method="_on_BackBtn_pressed"]

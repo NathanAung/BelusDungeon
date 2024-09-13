@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/PlayerUI/QuitMenu/QuitMenu.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[node name="QuitMenu" type="Label"]
+visible = false
+margin_left = 272.0
+margin_top = 126.0
+margin_right = 368.0
+margin_bottom = 156.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 5 )
+text = "Quit the game?"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -32.0
+margin_right = 128.0
+margin_bottom = 120.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMenu" type="HBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 50.0
+margin_right = 88.0
+margin_bottom = 93.0
+grow_horizontal = 2
+custom_constants/separation = 40
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesBtn" type="Button" parent="ButtonMenu"]
+margin_right = 22.0
+margin_bottom = 42.0
+focus_neighbour_left = NodePath("../NoBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Yes"
+
+[node name="NoBtn" type="Button" parent="ButtonMenu"]
+margin_left = 62.0
+margin_right = 79.0
+margin_bottom = 42.0
+focus_neighbour_right = NodePath("../YesBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "No"
+
+[connection signal="visibility_changed" from="." to="." method="_on_QuitMenu_visibility_changed"]
+[connection signal="focus_entered" from="ButtonMenu/YesBtn" to="." method="_on_YesBtn_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/YesBtn" to="." method="_on_YesBtn_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/YesBtn" to="." method="_on_YesBtn_pressed"]
+[connection signal="focus_entered" from="ButtonMenu/NoBtn" to="." method="_on_NoBtn_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/NoBtn" to="." method="_on_NoBtn_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/NoBtn" to="." method="_on_NoBtn_pressed"]

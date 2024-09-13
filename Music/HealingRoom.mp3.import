@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HealingRoom.mp3-418d17f2cd0f142475c47a64a308d17d.mp3str"
+
+[deps]
+
+source_file="res://Music/HealingRoom.mp3"
+dest_files=[ "res://.import/HealingRoom.mp3-418d17f2cd0f142475c47a64a308d17d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

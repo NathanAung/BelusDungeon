@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/SpriteSheets/PlayerUI/PowerUps/Sprite_UI_powerups.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="PowerUpU" type="HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+
+[node name="Sprite" type="Sprite" parent="CenterContainer"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 6
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.0
+margin_right = 80.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_fonts/font = SubResource( 1 )
+text = "5/5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
