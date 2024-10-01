@@ -83,10 +83,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			DungeonGlobal.restart(true)
 		else:
 			DungeonGlobal.restart(false)
-	elif anim_name == "from_white":
-			AudioGlobal.music_off_fixed = false
-			AudioGlobal.change_music(AudioGlobal.victory_track)
-			AudioGlobal.music_on_off(AudioGlobal.music_settings, false)
+#	elif anim_name == "from_white":
+#			AudioGlobal.music_off_fixed = false
+#			AudioGlobal.change_music(AudioGlobal.victory_track)
+#			AudioGlobal.music_on_off(AudioGlobal.music_settings, false)
 	elif anim_name == "FadeIn":
 		score_text.visible = true
 		eng_text.visible = true
@@ -100,6 +100,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	in_transition = true
+	if anim_name == "from_white":
+		AudioGlobal.music_off_fixed = false
+		AudioGlobal.change_music(AudioGlobal.victory_track)
+		AudioGlobal.music_on_off(AudioGlobal.music_settings, false)
 
 
 func _on_Timer_timeout():

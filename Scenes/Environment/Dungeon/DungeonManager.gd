@@ -70,11 +70,11 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _input(event):
-	if event is InputEventKey:
-		# open doors in current room when O Key is pressed
-		if event.pressed and event.scancode == KEY_O:
-			current_room.open_doors(!current_room.doors_open)
+#func _input(event):
+#	if event is InputEventKey:
+#		# open doors in current room when O Key is pressed
+#		if event.pressed and event.scancode == KEY_O:
+#			current_room.open_doors(!current_room.doors_open)
 
 
 # room transition

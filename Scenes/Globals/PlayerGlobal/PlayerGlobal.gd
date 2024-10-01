@@ -77,7 +77,7 @@ func reset_player():
 	player_HP_max = player_HP_default
 	player_HP_current = player_HP_default
 	player_score_current = 0
-	keys_collected = 1
+	keys_collected = 0
 	collected_power_ups = []
 	player_WS_current = player_WS_default
 	player_Gold_current = player_Gold_default
