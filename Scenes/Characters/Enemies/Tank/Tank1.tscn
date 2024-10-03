@@ -16,22 +16,6 @@ region = Rect2( 0, 0, 50, 50 )
 atlas = ExtResource( 4 )
 region = Rect2( 50, 0, 50, 50 )
 
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 50, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 4 )
-region = Rect2( 50, 50, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 4 )
-region = Rect2( 100, 50, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 4 )
-region = Rect2( 150, 50, 50, 50 )
-
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 150, 50, 50 )
@@ -51,6 +35,22 @@ region = Rect2( 150, 150, 50, 50 )
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 4 )
 region = Rect2( 200, 150, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 4 )
+region = Rect2( 50, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 4 )
+region = Rect2( 100, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 4 )
+region = Rect2( 150, 50, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 4 )
@@ -75,15 +75,15 @@ animations = [ {
 "name": "Idle",
 "speed": 4.0
 }, {
-"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 4.0
-}, {
 "frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": false,
 "name": "Death",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 4.0
 }, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
 "loop": true,
@@ -92,7 +92,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 10, 4.5 )
+extents = Vector2( 8, 3.5 )
 
 [sub_resource type="Animation" id=25]
 resource_name = "Death"
