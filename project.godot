@@ -86,7 +86,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="BelusDungeon0.9.15-2"
+config/name="BelusDungeon"
 run/main_scene="res://Scenes/Main/Main.tscn"
 boot_splash/image="res://Sprites/Misc/cover_art.png"
 config/icon="res://Sprites/Misc/game_icon.png"
