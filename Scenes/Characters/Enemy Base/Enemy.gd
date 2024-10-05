@@ -136,6 +136,9 @@ func _get_path_to_player() -> void:
 func _get_path_astar() -> void:
 	var move_dir = move_direction.round()
 	path = room_map.find_path(global_position, Player.global_position, move_dir)
+	if path.empty() and stuck:
+		print("a star path stuck, getting normal path")
+		_get_path_to_player()
 
 
 # called when the character takes damage
