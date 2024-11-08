@@ -2,6 +2,7 @@ extends Label
 
 
 var options_menu
+var last_menu
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +23,7 @@ func _on_HTPMenu_visibility_changed():
 func _on_BackBtn_pressed():
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 	visible = false
-	options_menu.visible = true
+	last_menu.visible = true
 
 
 func _on_BackBtn_focus_entered():

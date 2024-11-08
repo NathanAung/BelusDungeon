@@ -57,10 +57,10 @@ __meta__ = {
 }
 
 [node name="ButtonMenu" type="VBoxContainer" parent="."]
-margin_left = 8.0
+margin_left = -20.0
 margin_top = 39.0
-margin_right = 88.0
-margin_bottom = 104.0
+margin_right = 116.0
+margin_bottom = 129.0
 grow_horizontal = 2
 custom_constants/separation = 10
 alignment = 1
@@ -69,20 +69,21 @@ __meta__ = {
 }
 
 [node name="Option1" type="HBoxContainer" parent="ButtonMenu"]
-margin_right = 107.0
+margin_right = 136.0
 margin_bottom = 15.0
 custom_constants/separation = 45
 alignment = 1
 
 [node name="MusicText" type="Label" parent="ButtonMenu/Option1"]
-margin_right = 38.0
+margin_left = 14.0
+margin_right = 52.0
 margin_bottom = 15.0
 custom_fonts/font = SubResource( 18 )
 text = "Music:"
 
 [node name="MusicToggleBtn" type="Button" parent="ButtonMenu/Option1"]
-margin_left = 83.0
-margin_right = 107.0
+margin_left = 97.0
+margin_right = 121.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 24, 0 )
 focus_neighbour_top = NodePath("../../BackBtn")
@@ -100,25 +101,59 @@ align = 2
 
 [node name="Option2" type="HBoxContainer" parent="ButtonMenu"]
 margin_top = 25.0
-margin_right = 107.0
+margin_right = 136.0
 margin_bottom = 40.0
 custom_constants/separation = 45
 alignment = 1
 
 [node name="SFXText" type="Label" parent="ButtonMenu/Option2"]
-margin_right = 38.0
+margin_left = 14.0
+margin_right = 52.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 38, 0 )
 custom_fonts/font = SubResource( 18 )
 text = "SFX:"
 
 [node name="SFXToggleBtn" type="Button" parent="ButtonMenu/Option2"]
-margin_left = 83.0
-margin_right = 107.0
+margin_left = 97.0
+margin_right = 121.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 24, 0 )
 focus_neighbour_top = NodePath("../../Option1/MusicToggleBtn")
-focus_neighbour_bottom = NodePath("../../HowToPlay")
+focus_neighbour_bottom = NodePath("../../Option3/FSToggleBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "ON"
+align = 2
+
+[node name="Option3" type="HBoxContainer" parent="ButtonMenu"]
+margin_top = 50.0
+margin_right = 136.0
+margin_bottom = 65.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="FSText" type="Label" parent="ButtonMenu/Option3"]
+margin_left = 14.0
+margin_right = 81.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 38, 0 )
+custom_fonts/font = SubResource( 18 )
+text = "Fullscreen:"
+
+[node name="FSToggleBtn" type="Button" parent="ButtonMenu/Option3"]
+margin_left = 97.0
+margin_right = 121.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 24, 0 )
+focus_neighbour_top = NodePath("../../Option2/SFXToggleBtn")
+focus_neighbour_bottom = NodePath("../../BackBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -131,6 +166,7 @@ text = "ON"
 align = 2
 
 [node name="HowToPlay" type="Button" parent="ButtonMenu"]
+visible = false
 margin_top = 50.0
 margin_right = 107.0
 margin_bottom = 65.0
@@ -148,9 +184,9 @@ text = "How To Play"
 
 [node name="BackBtn" type="Button" parent="ButtonMenu"]
 margin_top = 75.0
-margin_right = 107.0
+margin_right = 136.0
 margin_bottom = 90.0
-focus_neighbour_top = NodePath("../HowToPlay")
+focus_neighbour_top = NodePath("../Option3/FSToggleBtn")
 focus_neighbour_bottom = NodePath("../Option1/MusicToggleBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
@@ -169,6 +205,9 @@ text = "Back"
 [connection signal="focus_entered" from="ButtonMenu/Option2/SFXToggleBtn" to="." method="_on_SFXToggleBtn_focus_entered"]
 [connection signal="mouse_entered" from="ButtonMenu/Option2/SFXToggleBtn" to="." method="_on_SFXToggleBtn_mouse_entered"]
 [connection signal="pressed" from="ButtonMenu/Option2/SFXToggleBtn" to="." method="_on_SFXToggleBtn_pressed"]
+[connection signal="focus_entered" from="ButtonMenu/Option3/FSToggleBtn" to="." method="_on_FSToggleBtn_focus_entered"]
+[connection signal="mouse_entered" from="ButtonMenu/Option3/FSToggleBtn" to="." method="_on_FSToggleBtn_mouse_entered"]
+[connection signal="pressed" from="ButtonMenu/Option3/FSToggleBtn" to="." method="_on_FSToggleBtn_pressed"]
 [connection signal="focus_entered" from="ButtonMenu/HowToPlay" to="." method="_on_HowToPlay_focus_entered"]
 [connection signal="mouse_entered" from="ButtonMenu/HowToPlay" to="." method="_on_HowToPlay_mouse_entered"]
 [connection signal="pressed" from="ButtonMenu/HowToPlay" to="." method="_on_HowToPlay_pressed"]

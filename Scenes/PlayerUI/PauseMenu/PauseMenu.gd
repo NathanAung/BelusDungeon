@@ -12,7 +12,7 @@ func _ready():
 	options_menu.last_menu = self
 	quit_menu = get_parent().get_node("RTMMMenu")
 	htp_menu = get_parent().get_node("HTPMenu")
-	#quit_menu.last_menu = self
+	htp_menu.last_menu = self
 
 
 func _input(event):
@@ -75,25 +75,41 @@ func _on_OptionsBtn_pressed():
 	visible = false
 	options_menu.visible = true
 
+func _on_HowToPlay_pressed():
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	visible = false
+	htp_menu.visible = true
 
 # menu SFX
 func _on_ResumeBtn_focus_entered():
 	# to make sure the pause sfx plays first
 	if !AudioGlobal.get_node("UISFX").is_playing():
 		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
-func _on_OptionsBtn_focus_entered():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
-func _on_QuitBtn_focus_entered():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_ResumeBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_OptionsBtn_focus_entered():
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_OptionsBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_HowToPlay_focus_entered():
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_HowToPlay_mouse_entered():
+	if get_focus_owner() != null:
+		get_focus_owner().release_focus()
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_QuitBtn_focus_entered():
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_QuitBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+
+
+
+
+
+

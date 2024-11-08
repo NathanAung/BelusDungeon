@@ -1,3 +1,20 @@
+Belu's Dungeon 1.1
+
+CHANGES:
+- "How To Play" menu now renamed "Controls" and moved outside of Options Menu
+- Fullscreen/Windowed option added
+- HDR disabled
+
+BUG FIXES:
+- fixed shopkeeper collider still active after he disappears
+
+
+Belu's Dungeon 1.0.1
+
+BUG FIXES:
+- fixed enemy pathfinding bug
+
+
 Belu's Dungeon 0.9.15
 
 CHANGES:

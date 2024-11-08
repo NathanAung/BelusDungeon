@@ -10,6 +10,7 @@ onready var UI_node = get_node(UI_node_path)
 var options_menu
 var quit_menu
 var credits_menu
+var htp_menu
 var first_hover:bool = true	# for play button sfx to not activate when the game starts
 var movable:bool = false
 
@@ -20,6 +21,8 @@ func _ready():
 	quit_menu = get_parent().get_node("QuitMenu")
 	quit_menu.last_menu = self
 	credits_menu = get_parent().get_node("CreditsMenu")
+	htp_menu = get_parent().get_node("HTPMenu")
+	htp_menu.last_menu = self
 	$ButtonMenu/PlayBtn.grab_focus()
 
 
@@ -68,6 +71,12 @@ func _on_OptionsBtn_pressed():
 	options_menu.visible = true
 
 
+func _on_HowToPlay_pressed():
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	visible = false
+	htp_menu.visible = true
+
+
 func _on_CreditsBtn_pressed():
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 	visible = false
@@ -96,6 +105,12 @@ func _on_OptionsBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_HowToPlay_focus_entered():
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_HowToPlay_mouse_entered():
+	if get_focus_owner() != null:
+		get_focus_owner().release_focus()
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_CreditsBtn_focus_entered():
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_CreditsBtn_mouse_entered():
@@ -108,4 +123,10 @@ func _on_QuitBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+
+
+
+
+
+
 

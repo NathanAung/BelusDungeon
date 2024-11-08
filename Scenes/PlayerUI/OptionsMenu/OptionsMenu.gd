@@ -38,6 +38,11 @@ func _on_OptionsMenu_visibility_changed():
 			$ButtonMenu/Option2/SFXToggleBtn.text = "ON"
 		else:
 			$ButtonMenu/Option2/SFXToggleBtn.text = "OFF"
+		
+		if MiscGlobal.fullscreen:
+			$ButtonMenu/Option3/FSToggleBtn.text = "ON"
+		else:
+			$ButtonMenu/Option3/FSToggleBtn.text = "OFF"
 
 
 func _on_MusicToggleBtn_pressed():
@@ -62,6 +67,19 @@ func _on_SFXToggleBtn_pressed():
 	else:
 		$ButtonMenu/Option2/SFXToggleBtn.text = "ON"
 		AudioGlobal.sfx_settings = true
+		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+
+
+func _on_FSToggleBtn_pressed():
+	if MiscGlobal.fullscreen:
+		$ButtonMenu/Option3/FSToggleBtn.text = "OFF"
+		OS.set_window_fullscreen(false)
+		MiscGlobal.fullscreen = false
+		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	else:
+		$ButtonMenu/Option3/FSToggleBtn.text = "ON"
+		OS.set_window_fullscreen(true)
+		MiscGlobal.fullscreen = true
 		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 
 
@@ -90,6 +108,12 @@ func _on_SFXToggleBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_FSToggleBtn_focus_entered():
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+func _on_FSToggleBtn_mouse_entered():
+	if get_focus_owner() != null:
+		get_focus_owner().release_focus()
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_BackBtn_focus_entered():
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_BackBtn_mouse_entered():
@@ -102,4 +126,10 @@ func _on_HowToPlay_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+
+
+
+
+
+
 

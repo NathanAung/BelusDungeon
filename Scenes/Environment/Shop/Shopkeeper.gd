@@ -100,4 +100,5 @@ func sell_item():
 		if AudioGlobal.sfx_settings:
 			$AudioStreamPlayer2D.play()
 		$AnimatedSprite.play("Despawn")
+		$CollisionShape2D.disabled = true
 		despawned = true

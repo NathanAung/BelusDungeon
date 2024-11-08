@@ -210,6 +210,7 @@ visible = false
 show_behind_parent = true
 anchor_left = 0.5
 anchor_right = 0.5
+margin_top = -20.0
 margin_right = 120.0
 margin_bottom = 110.0
 grow_horizontal = 2
@@ -224,9 +225,9 @@ visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 20.0
-margin_top = 10.0
+margin_top = -13.0
 margin_right = 100.0
-margin_bottom = 100.0
+margin_bottom = 102.0
 grow_horizontal = 2
 custom_constants/separation = 10
 alignment = 1
@@ -262,7 +263,7 @@ custom_styles/disabled = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
 text = "Options"
 
-[node name="CreditsBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+[node name="HowToPlay" type="Button" parent="Control/MainMenu/ButtonMenu"]
 margin_top = 50.0
 margin_right = 80.0
 margin_bottom = 65.0
@@ -274,12 +275,26 @@ custom_styles/pressed = SubResource( 9 )
 custom_styles/focus = SubResource( 10 )
 custom_styles/disabled = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
-text = "Credits"
+text = "Controls"
 
-[node name="QuitBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+[node name="CreditsBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
 margin_top = 75.0
 margin_right = 80.0
 margin_bottom = 90.0
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Credits"
+
+[node name="QuitBtn" type="Button" parent="Control/MainMenu/ButtonMenu"]
+margin_top = 100.0
+margin_right = 80.0
+margin_bottom = 115.0
 focus_neighbour_bottom = NodePath("../PlayBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
@@ -412,6 +427,9 @@ anims/RESET = SubResource( 27 )
 [connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/OptionsBtn" to="Control/MainMenu" method="_on_OptionsBtn_focus_entered"]
 [connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/OptionsBtn" to="Control/MainMenu" method="_on_OptionsBtn_mouse_entered"]
 [connection signal="pressed" from="Control/MainMenu/ButtonMenu/OptionsBtn" to="Control/MainMenu" method="_on_OptionsBtn_pressed"]
+[connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/HowToPlay" to="Control/MainMenu" method="_on_HowToPlay_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/HowToPlay" to="Control/MainMenu" method="_on_HowToPlay_mouse_entered"]
+[connection signal="pressed" from="Control/MainMenu/ButtonMenu/HowToPlay" to="Control/MainMenu" method="_on_HowToPlay_pressed"]
 [connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/CreditsBtn" to="Control/MainMenu" method="_on_CreditsBtn_focus_entered"]
 [connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/CreditsBtn" to="Control/MainMenu" method="_on_CreditsBtn_mouse_entered"]
 [connection signal="pressed" from="Control/MainMenu/ButtonMenu/CreditsBtn" to="Control/MainMenu" method="_on_CreditsBtn_pressed"]
