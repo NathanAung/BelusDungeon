@@ -32,6 +32,22 @@ region = Rect2( 0, 0, 50, 50 )
 atlas = ExtResource( 3 )
 region = Rect2( 50, 0, 50, 50 )
 
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 3 )
+region = Rect2( 100, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 3 )
+region = Rect2( 150, 50, 50, 50 )
+
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 150, 50, 50 )
@@ -51,22 +67,6 @@ region = Rect2( 150, 150, 50, 50 )
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 3 )
 region = Rect2( 200, 150, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 50, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 3 )
-region = Rect2( 50, 50, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 3 )
-region = Rect2( 100, 50, 50, 50 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 3 )
-region = Rect2( 150, 50, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 3 )
@@ -91,15 +91,15 @@ animations = [ {
 "name": "Idle",
 "speed": 4.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": false,
-"name": "Death",
-"speed": 12.0
-}, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": false,
+"name": "Death",
+"speed": 12.0
 }, {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
@@ -111,6 +111,8 @@ animations = [ {
 HP = 8.0
 max_speed = 60
 kill_points = 250
+HP_easy = 7.0
+max_speed_easy = 60
 shield_scene = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="1"]
@@ -121,14 +123,6 @@ frames = SubResource( 17 )
 visible = false
 
 [node name="Hitbox" parent="Weapons/Shield3/Node2D/AnimatedSprite" index="0"]
-collision_mask = 4
-
-[node name="GHurtbox" parent="Weapons/Shield3/Node2D/AnimatedSprite" index="1"]
-collision_layer = 8
-collision_mask = 4
-
-[node name="PHurtbox" parent="Weapons/Shield3/Node2D/AnimatedSprite" index="2"]
-collision_layer = 8
 collision_mask = 4
 
 [editable path="Weapons/Shield3"]

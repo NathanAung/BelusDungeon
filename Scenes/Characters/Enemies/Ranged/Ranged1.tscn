@@ -15,6 +15,22 @@ region = Rect2( 0, 0, 40, 40 )
 atlas = ExtResource( 4 )
 region = Rect2( 40, 0, 40, 40 )
 
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 40, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 80, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 40, 40, 40 )
+
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 80, 40, 40 )
@@ -39,22 +55,6 @@ region = Rect2( 160, 80, 40, 40 )
 atlas = ExtResource( 4 )
 region = Rect2( 200, 80, 40, 40 )
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 40, 40, 40 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 4 )
-region = Rect2( 40, 40, 40, 40 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 4 )
-region = Rect2( 80, 40, 40, 40 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
-region = Rect2( 120, 40, 40, 40 )
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
@@ -62,15 +62,15 @@ animations = [ {
 "name": "Idle",
 "speed": 4.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": false,
-"name": "Death",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": false,
+"name": "Death",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
@@ -282,6 +282,9 @@ attack_cd = 2
 attack_distance = 160.0
 eyes_offset = -2.0
 kill_points = 125
+HP_easy = 2.0
+max_speed_easy = 100
+attack_cd_easy = 2.5
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 6 )

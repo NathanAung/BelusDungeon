@@ -63,13 +63,19 @@ func create_enemies(gen_type):
 				if room.enemy_waves > 1:
 					enemy_number = rng.randi_range(2, 3)
 				else:
-					enemy_number = rng.randi_range(3, 5)
+					if MiscGlobal.game_difficulty == 1:
+						enemy_number = rng.randi_range(2, 4)
+					else:
+						enemy_number = rng.randi_range(3, 5)
 			#enemy_number = 1	# debug
 		elif DungeonGlobal.floor_level >= 2:
 			if room.enemy_waves > 1:
 				enemy_number = rng.randi_range(2, 4)
 			else:
-				enemy_number = rng.randi_range(3, 6)
+				if MiscGlobal.game_difficulty == 1:
+					enemy_number = rng.randi_range(3, 5)
+				else:
+					enemy_number = rng.randi_range(3, 6)
 #	elif gen_type == gen_types.boss1:
 #		enemy_number = 1
 	else:
@@ -165,6 +171,7 @@ func create_enemies(gen_type):
 		enemy.playSFX(0)
 		enemy.position = e_pos
 		enemy.navigation = get_node(MiscGlobal.dungeon_node_path)
+		enemy.set_difficulty(MiscGlobal.game_difficulty)
 		enemy.connect_signal(room)
 		room.enemies.append(enemy)
 		#YSort_node.add_child(enemy)
@@ -188,6 +195,7 @@ func create_boss():
 	var pos:Vector2 = Vector2(9,6)
 	var e_pos = Vector2(pos.x * DungeonGlobal.CELL_SIZE + room.grid_pos.x * DungeonGlobal.room_width, pos.y * DungeonGlobal.CELL_SIZE + room.grid_pos.y * DungeonGlobal.room_height)
 	var enemy = boss1.instance()
+	enemy.set_difficulty(MiscGlobal.game_difficulty)
 	enemy.position = e_pos
 	enemy.navigation = get_node(MiscGlobal.dungeon_node_path)
 	enemy.connect_signal(room)

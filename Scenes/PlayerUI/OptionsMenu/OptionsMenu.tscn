@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/PlayerUI/OptionsMenu/OptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=28]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
@@ -13,20 +13,20 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=29]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=30]
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=31]
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=32]
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxEmpty" id=33]
 
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="StyleBoxEmpty" id=34]
 
 [node name="OptionsMenu" type="Label"]
 visible = false
@@ -35,7 +35,7 @@ margin_top = 120.0
 margin_right = 368.0
 margin_bottom = 150.0
 grow_horizontal = 2
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 28 )
 text = "OPTIONS"
 align = 1
 valign = 1
@@ -90,12 +90,12 @@ focus_neighbour_top = NodePath("../../BackBtn")
 focus_neighbour_bottom = NodePath("../../Option2/SFXToggleBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 10 )
-custom_styles/disabled = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 text = "ON"
 align = 2
 
@@ -123,12 +123,12 @@ focus_neighbour_top = NodePath("../../Option1/MusicToggleBtn")
 focus_neighbour_bottom = NodePath("../../Option3/FSToggleBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 10 )
-custom_styles/disabled = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 text = "ON"
 align = 2
 
@@ -156,12 +156,12 @@ focus_neighbour_top = NodePath("../../Option2/SFXToggleBtn")
 focus_neighbour_bottom = NodePath("../../BackBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 10 )
-custom_styles/disabled = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 text = "ON"
 align = 2
 
@@ -174,12 +174,12 @@ focus_neighbour_top = NodePath("../Option2/SFXToggleBtn")
 focus_neighbour_bottom = NodePath("../BackBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 10 )
-custom_styles/disabled = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 text = "How To Play"
 
 [node name="BackBtn" type="Button" parent="ButtonMenu"]
@@ -190,12 +190,12 @@ focus_neighbour_top = NodePath("../Option3/FSToggleBtn")
 focus_neighbour_bottom = NodePath("../Option1/MusicToggleBtn")
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 10 )
-custom_styles/disabled = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
 text = "Back"
 
 [connection signal="visibility_changed" from="." to="." method="_on_OptionsMenu_visibility_changed"]

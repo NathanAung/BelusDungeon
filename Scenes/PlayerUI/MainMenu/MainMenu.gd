@@ -7,6 +7,7 @@ onready var Player: KinematicBody2D = get_node(player_node_path)
 # UI nide
 export(NodePath) var UI_node_path = "/root/Main/PlayerUI/CanvasLayer"
 onready var UI_node = get_node(UI_node_path)
+var difficulty_menu
 var options_menu
 var quit_menu
 var credits_menu
@@ -16,6 +17,7 @@ var movable:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	difficulty_menu = get_parent().get_node("DifficultyMenu")
 	options_menu = get_parent().get_node("OptionsMenu")
 	options_menu.last_menu = self
 	quit_menu = get_parent().get_node("QuitMenu")
@@ -61,8 +63,12 @@ func _on_MainMenu_visibility_changed():
 
 
 func _on_PlayBtn_pressed():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.start_game)
-	get_node("../..").get_node("AnimationPlayer").play("FadeOut")
+#	AudioGlobal.play_SFX(AudioGlobal.SFX_type.start_game)
+#	get_node("../..").get_node("AnimationPlayer").play("FadeOut")
+	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	visible = false
+	difficulty_menu.visible = true
+
 
 
 func _on_OptionsBtn_pressed():
@@ -90,35 +96,40 @@ func _on_QuitBtn_pressed():
 
 
 func _on_PlayBtn_focus_entered():
-	# make sure the sfx doesn't play on start up
-	if !first_hover and $ButtonMenu.visible:
-		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
-	elif first_hover:
-		first_hover = false
+	if movable:
+		# make sure the sfx doesn't play on start up
+		if !first_hover and $ButtonMenu.visible:
+			AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+		elif first_hover:
+			first_hover = false
 func _on_PlayBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_OptionsBtn_focus_entered():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	if movable:
+		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_OptionsBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_HowToPlay_focus_entered():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	if movable:
+		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_HowToPlay_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_CreditsBtn_focus_entered():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	if movable:
+		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_CreditsBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_QuitBtn_focus_entered():
-	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
+	if movable:
+		AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 func _on_QuitBtn_mouse_entered():
 	if get_focus_owner() != null:
 		get_focus_owner().release_focus()

@@ -68,19 +68,17 @@ func _set_up_shop():
 #						pedestal.shop_item = ItemGlobal.lv2_weapons[weap_no].instance()
 #					else:
 #						pedestal.shop_item = ItemGlobal.lv1_weapons[weap_no].instance()
-				if rng.randi_range(0,5) == 0:
+				if rng.randi_range(0,2) == 0:
 					pedestal.shop_item = ItemGlobal.lv3_weapons[weap_no].instance()
-				elif rng.randi_range(0,3) == 0:
-					pedestal.shop_item = ItemGlobal.lv2_weapons[weap_no].instance()
 				else:
-					pedestal.shop_item = ItemGlobal.lv1_weapons[weap_no].instance()
+					pedestal.shop_item = ItemGlobal.lv2_weapons[weap_no].instance()
 					
 				pedestal.shop_item.on_floor = true
 			item_dict.armor:
 				var armor_lvl = 1
-				if rng.randi_range(0, 8) == 0:
+				if rng.randi_range(0, 5) == 0:
 					armor_lvl = 3
-				elif rng.randi_range(0, 3) == 0:
+				elif rng.randi_range(0, 2) == 0:
 					armor_lvl = 2
 				#armor_lvl = 1		#debug
 				pedestal.shop_item = ItemGlobal.armor_scene.instance()

@@ -298,6 +298,8 @@ acceleration = 60
 max_speed = 140
 attack_distance = 20.0
 kill_points = 50
+HP_easy = 1.0
+max_speed_easy = 120
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 5 )

@@ -23,6 +23,8 @@ var parent_room:Object
 
 var items = []
 var itemNo:int = 0
+var tier3_rate:int = 9
+var tier2_rate:int = 3
 
 func _ready():
 	rng.randomize()
@@ -50,7 +52,12 @@ func set_chest(type:int, room:Object):
 			item = key_scene.instance()
 		# insert random power ups
 		elif i == 0 and chest_type == chest_types.power_up:
-			if rng.randi_range(0, 9) == 0:
+			if MiscGlobal.game_difficulty == 1:
+				tier3_rate -= 2
+				tier2_rate -= 1
+				print("chest easy set")
+			
+			if rng.randi_range(0, tier3_rate) == 0:
 				print("tier 3 item")
 				var item_no = rng.randi_range(0, tier_3_items.size() - 1)
 				match item_no:
@@ -61,7 +68,7 @@ func set_chest(type:int, room:Object):
 					tier_3_items.armor:
 						item = ItemGlobal.armor_scene.instance()
 						item.set_armor(3)
-			elif rng.randi_range(0, 3) == 0:
+			elif rng.randi_range(0, tier2_rate) == 0:
 				print("tier 2 item")
 				var item_no = rng.randi_range(0, tier_2_items.size() - 1)
 				match item_no:
@@ -97,12 +104,14 @@ func set_chest(type:int, room:Object):
 				else:
 					item = ItemGlobal.lv2_weapons[weap_no].instance()
 			elif DungeonGlobal.floor_level == 2:
-				if rng.randi_range(0,2) == 0:
+				if rng.randi_range(0,5) == 0:
+					item = ItemGlobal.lv3_weapons[weap_no].instance()
+				elif rng.randi_range(0,2) == 0:
 					item = ItemGlobal.lv2_weapons[weap_no].instance()
 				else:
 					item = ItemGlobal.lv1_weapons[weap_no].instance()
 			else:
-				if rng.randi_range(0,3) == 0:
+				if rng.randi_range(0,2) == 0:
 					item = ItemGlobal.lv2_weapons[weap_no].instance()
 				else:
 					item = ItemGlobal.lv1_weapons[weap_no].instance()

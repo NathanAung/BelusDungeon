@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Fonts/CompassPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/PlayerUI/MainMenu/MainMenu.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/PlayerUI/MainMenu/CreditsMenu.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/PlayerUI/HTPMenu/HTPMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Misc/belu-dungeon-logo.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/PlayerUI/MainMenu/DifficultyMenu.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=2]
 outline_size = 1
@@ -40,6 +41,26 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=28]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=29]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=30]
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="StyleBoxEmpty" id=32]
+
+[sub_resource type="StyleBoxEmpty" id=33]
+
+[sub_resource type="StyleBoxEmpty" id=34]
+
 [sub_resource type="DynamicFont" id=13]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -69,7 +90,7 @@ font_data = ExtResource( 1 )
 resource_name = "FadeIn"
 length = 1.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("Control/MainMenu/Title:self_modulate")
+tracks/0/path = NodePath("Control/Title:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -109,7 +130,7 @@ tracks/2/keys = {
 resource_name = "FadeOut"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Control/MainMenu/Title:self_modulate")
+tracks/0/path = NodePath("Control/Title:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -148,7 +169,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=27]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Control/MainMenu/Title:self_modulate")
+tracks/0/path = NodePath("Control/Title:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -194,6 +215,11 @@ margin_bottom = 360.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Title" type="Sprite" parent="Control"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 315, 103 )
+texture = ExtResource( 8 )
 
 [node name="MainMenu" type="Control" parent="Control"]
 margin_left = 440.0
@@ -323,27 +349,116 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Sprite" parent="Control/MainMenu"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -125, -67 )
-texture = ExtResource( 8 )
-
 [node name="OptionsMenu" parent="Control" instance=ExtResource( 4 )]
-margin_top = 112.0
-margin_bottom = 142.0
+margin_top = 136.0
+margin_bottom = 166.0
+
+[node name="DifficultyMenu" type="Label" parent="Control"]
+visible = false
+margin_left = 256.5
+margin_top = 136.0
+margin_right = 383.5
+margin_bottom = 169.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 28 )
+text = "SELECT DIFFICULTY"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/DifficultyMenu"]
+show_behind_parent = true
+anchor_left = 0.119
+anchor_right = 0.128
+margin_left = -32.0
+margin_right = 128.0
+margin_bottom = 135.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMenu" type="VBoxContainer" parent="Control/DifficultyMenu"]
+anchor_left = 0.12
+anchor_right = 0.12
+margin_left = -20.0
+margin_top = 39.0
+margin_right = 116.0
+margin_bottom = 129.0
+grow_horizontal = 2
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NormalBtn" type="Button" parent="Control/DifficultyMenu/ButtonMenu"]
+margin_top = 12.0
+margin_right = 136.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 24, 0 )
+focus_neighbour_top = NodePath("../BackBtn")
+focus_neighbour_bottom = NodePath("../EasyBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
+text = "NORMAL"
+
+[node name="EasyBtn" type="Button" parent="Control/DifficultyMenu/ButtonMenu"]
+margin_top = 37.0
+margin_right = 136.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 24, 0 )
+focus_neighbour_top = NodePath("../NormalBtn")
+focus_neighbour_bottom = NodePath("../BackBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
+text = "EASY"
+
+[node name="BackBtn" type="Button" parent="Control/DifficultyMenu/ButtonMenu"]
+margin_top = 62.0
+margin_right = 136.0
+margin_bottom = 77.0
+focus_neighbour_top = NodePath("../EasyBtn")
+focus_neighbour_bottom = NodePath("../NormalBtn")
+custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
+custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 32 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
+text = "Back"
 
 [node name="QuitMenu" parent="Control" instance=ExtResource( 5 )]
-margin_top = 120.0
-margin_bottom = 150.0
+margin_top = 144.0
+margin_bottom = 174.0
 
 [node name="HTPMenu" parent="Control" instance=ExtResource( 7 )]
 
 [node name="CreditsMenu" type="Label" parent="Control"]
 visible = false
 margin_left = 272.0
-margin_top = 110.0
+margin_top = 134.0
 margin_right = 368.0
-margin_bottom = 140.0
+margin_bottom = 164.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 13 )
 text = "CREDITS"
@@ -379,7 +494,7 @@ __meta__ = {
 }
 
 [node name="Credits1" type="Label" parent="Control/CreditsMenu/ButtonMenu"]
-margin_right = 145.0
+margin_right = 151.0
 margin_bottom = 15.0
 custom_fonts/font = SubResource( 20 )
 text = "Programmer: Zayar Aung"
@@ -387,7 +502,7 @@ align = 1
 
 [node name="Credits2" type="Label" parent="Control/CreditsMenu/ButtonMenu"]
 margin_top = 25.0
-margin_right = 145.0
+margin_right = 151.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 20 )
 text = "Artist: Sai Laung Linn"
@@ -395,7 +510,7 @@ align = 1
 
 [node name="Credits3" type="Label" parent="Control/CreditsMenu/ButtonMenu"]
 margin_top = 50.0
-margin_right = 145.0
+margin_right = 151.0
 margin_bottom = 65.0
 custom_fonts/font = SubResource( 20 )
 text = "Music: Paing Min Khant"
@@ -403,7 +518,7 @@ align = 1
 
 [node name="BackBtn" type="Button" parent="Control/CreditsMenu/ButtonMenu"]
 margin_top = 75.0
-margin_right = 145.0
+margin_right = 151.0
 margin_bottom = 90.0
 custom_colors/font_color_focus = Color( 1, 0.815686, 0.168627, 1 )
 custom_colors/font_color_hover = Color( 1, 0.815686, 0.168627, 1 )
@@ -436,6 +551,16 @@ anims/RESET = SubResource( 27 )
 [connection signal="focus_entered" from="Control/MainMenu/ButtonMenu/QuitBtn" to="Control/MainMenu" method="_on_QuitBtn_focus_entered"]
 [connection signal="mouse_entered" from="Control/MainMenu/ButtonMenu/QuitBtn" to="Control/MainMenu" method="_on_QuitBtn_mouse_entered"]
 [connection signal="pressed" from="Control/MainMenu/ButtonMenu/QuitBtn" to="Control/MainMenu" method="_on_QuitBtn_pressed"]
+[connection signal="visibility_changed" from="Control/DifficultyMenu" to="Control/DifficultyMenu" method="_on_DifficultyMenu_visibility_changed"]
+[connection signal="focus_entered" from="Control/DifficultyMenu/ButtonMenu/NormalBtn" to="Control/DifficultyMenu" method="_on_NormalBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/DifficultyMenu/ButtonMenu/NormalBtn" to="Control/DifficultyMenu" method="_on_NormalBtn_mouse_entered"]
+[connection signal="pressed" from="Control/DifficultyMenu/ButtonMenu/NormalBtn" to="Control/DifficultyMenu" method="_on_NormalBtn_pressed"]
+[connection signal="focus_entered" from="Control/DifficultyMenu/ButtonMenu/EasyBtn" to="Control/DifficultyMenu" method="_on_EasyBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/DifficultyMenu/ButtonMenu/EasyBtn" to="Control/DifficultyMenu" method="_on_EasyBtn_mouse_entered"]
+[connection signal="pressed" from="Control/DifficultyMenu/ButtonMenu/EasyBtn" to="Control/DifficultyMenu" method="_on_EasyBtn_pressed"]
+[connection signal="focus_entered" from="Control/DifficultyMenu/ButtonMenu/BackBtn" to="Control/DifficultyMenu" method="_on_BackBtn_focus_entered"]
+[connection signal="mouse_entered" from="Control/DifficultyMenu/ButtonMenu/BackBtn" to="Control/DifficultyMenu" method="_on_BackBtn_mouse_entered"]
+[connection signal="pressed" from="Control/DifficultyMenu/ButtonMenu/BackBtn" to="Control/DifficultyMenu" method="_on_BackBtn_pressed"]
 [connection signal="visibility_changed" from="Control/CreditsMenu" to="Control/CreditsMenu" method="_on_CreditsMenu_visibility_changed"]
 [connection signal="focus_entered" from="Control/CreditsMenu/ButtonMenu/BackBtn" to="Control/CreditsMenu" method="_on_BackBtn_focus_entered"]
 [connection signal="mouse_entered" from="Control/CreditsMenu/ButtonMenu/BackBtn" to="Control/CreditsMenu" method="_on_BackBtn_mouse_entered"]

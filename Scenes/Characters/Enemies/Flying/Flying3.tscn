@@ -73,6 +73,8 @@ HP = 3.0
 acceleration = 80
 max_speed = 180
 kill_points = 120
+max_speed_easy = 160
+attack_cd_easy = 1.0
 
 [node name="AnimatedSprite" parent="." index="1"]
 material = SubResource( 11 )

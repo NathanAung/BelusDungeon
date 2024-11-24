@@ -1,5 +1,8 @@
 extends Node2D
 
+export(NodePath) var health_ui_node_path = "/root/Main/PlayerUI/CanvasLayer/Health"
+var Health_UI
+
 # signal for updating the UI
 signal score_changed()
 signal gold_changed()
@@ -7,6 +10,7 @@ signal keys_changed()
 
 # HP
 var player_HP_default:float = 8 #8
+var player_HP_easy:float = 12 #8
 var player_HP_current:float = player_HP_default
 var player_HP_max:float = player_HP_default
 var player_HP_limit:float = 20
@@ -53,7 +57,7 @@ var in_menu:bool = true
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
-#	player_HP_current = player_HP_max
+#	set_difficulty()
 
 
 func _set_player_score(score):
@@ -71,11 +75,27 @@ func _set_player_keys(key):
 	emit_signal("keys_changed")
 
 
+# set player HP according to difficulty
+func set_difficulty() -> void:
+	match(MiscGlobal.game_difficulty):
+		0:
+			player_HP_max = player_HP_default
+			player_HP_current = player_HP_default
+		1:
+			player_HP_max = player_HP_easy
+			player_HP_current = player_HP_easy
+		
+	Health_UI = get_node(health_ui_node_path)
+	Health_UI.generate_hearts()
+	Health_UI.update_health()
+
+
 # reset all player attributes
 func reset_player():
 	player_dead = false
-	player_HP_max = player_HP_default
-	player_HP_current = player_HP_default
+#	player_HP_max = player_HP_default
+#	player_HP_current = player_HP_default
+	set_difficulty()
 	player_score_current = 0
 	keys_collected = 0
 	collected_power_ups = []

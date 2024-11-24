@@ -29,7 +29,7 @@ var distance_offset = 20
 var stuck:bool = false
 
 # attack cd and wait bool
-export(int) var attack_cd = 1
+export(float) var attack_cd:float = 1
 var can_attack = false
 # the distance enemy's attack can reach
 export var attack_distance:float = 40
@@ -41,6 +41,11 @@ export var kill_points:int = 100
 
 # sfx
 var explosion_sfx = preload("res://SFX/Environment/explosion.wav")
+
+# difficulty settings
+export var HP_easy:float = 3
+export var max_speed_easy:int = 80
+export var attack_cd_easy:float = 1.5
 
 
 func connect_signal(room: Node2D):
@@ -172,6 +177,15 @@ func playSFX(sfx) -> void:
 				$OtherAudio.stream = explosion_sfx
 				$OtherAudio.volume_db = -7
 				$OtherAudio.play()
+
+
+func set_difficulty(dif: int) -> void:
+	match dif:
+		1:
+			HP = HP_easy
+			attack_cd = attack_cd_easy
+			max_speed = max_speed_easy
+			#print("easy difficulty set")
 
 
 # timer set to not attack immediately after spawning

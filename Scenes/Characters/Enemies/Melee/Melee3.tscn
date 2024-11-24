@@ -35,6 +35,22 @@ region = Rect2( 0, 0, 40, 40 )
 atlas = ExtResource( 1 )
 region = Rect2( 40, 0, 40, 40 )
 
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 40, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 120, 40, 40, 40 )
+
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 80, 40, 40 )
@@ -59,22 +75,6 @@ region = Rect2( 160, 80, 40, 40 )
 atlas = ExtResource( 1 )
 region = Rect2( 200, 80, 40, 40 )
 
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 40, 40, 40 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 1 )
-region = Rect2( 40, 40, 40, 40 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 1 )
-region = Rect2( 80, 40, 40, 40 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 1 )
-region = Rect2( 120, 40, 40, 40 )
-
 [sub_resource type="SpriteFrames" id=41]
 animations = [ {
 "frames": [ SubResource( 29 ), SubResource( 30 ) ],
@@ -82,16 +82,20 @@ animations = [ {
 "name": "Idle",
 "speed": 4.0
 }, {
-"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
-"name": "Death",
-"speed": 12.0
-}, {
 "frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "Death",
+"speed": 12.0
 } ]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -117,23 +121,23 @@ region = Rect2( 256, 0, 64, 64 )
 atlas = ExtResource( 6 )
 region = Rect2( 320, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=43]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": false,
-"name": "Attack",
-"speed": 12.0
-}, {
 "frames": [ SubResource( 7 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 1.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 12.0
 } ]
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
@@ -159,22 +163,18 @@ region = Rect2( 256, 0, 64, 64 )
 atlas = ExtResource( 2 )
 region = Rect2( 320, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=42]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
-"loop": false,
-"name": "Attack",
-"speed": 12.0
-}, {
 "frames": [ SubResource( 26 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 1.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 12.0
 } ]
 
 [node name="Melee3" instance=ExtResource( 3 )]
@@ -182,6 +182,9 @@ HP = 7.0
 acceleration = 50
 max_speed = 140
 kill_points = 200
+HP_easy = 5.0
+max_speed_easy = 120
+attack_cd_easy = 1.0
 aim_variation = 0.0
 
 [node name="AnimatedSprite" parent="." index="1"]

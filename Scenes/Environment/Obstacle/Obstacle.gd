@@ -80,6 +80,9 @@ func drop_item():
 	match obs_type:
 		obs_types.rock:
 			var k = 5
+			if MiscGlobal.game_difficulty == 1:
+				k = 4
+				#print("rock easy")
 			for i in DungeonGlobal.floor_level - 1:
 				k = max(1, min(k, k - 2))
 			if rng.randi_range(0, k) == 0:
@@ -89,6 +92,9 @@ func drop_item():
 				gold.global_position = position
 		obs_types.pot:
 			var k = 7
+			if MiscGlobal.game_difficulty == 1:
+				k = 6
+				#print("pot easy")
 			for i in DungeonGlobal.floor_level - 1:
 				k = max(1, min(k, k - 2))
 			if rng.randi_range(0, k) == 0:

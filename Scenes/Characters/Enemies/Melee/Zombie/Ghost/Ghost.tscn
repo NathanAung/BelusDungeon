@@ -368,6 +368,9 @@ script = ExtResource( 3 )
 HP = 2.0
 explosion_scene = null
 kill_points = 200
+HP_easy = 2.0
+max_speed_easy = 100
+attack_cd_easy = 1.0
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 4 )

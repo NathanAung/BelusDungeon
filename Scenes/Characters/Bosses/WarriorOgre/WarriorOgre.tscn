@@ -14,6 +14,74 @@
 [ext_resource path="res://Sprites/SpriteSheets/Enemies/Bosses/Sprite-boss-enemy.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Weapons/WeaponBase/Hitbox.gd" type="Script" id=14]
 
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 13 )
+region = Rect2( 80, 0, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 0, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 13 )
+region = Rect2( 240, 0, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 0, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 74, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 13 )
+region = Rect2( 80, 74, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 74, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 13 )
+region = Rect2( 240, 74, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 13 )
+region = Rect2( 80, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 13 )
+region = Rect2( 240, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 13 )
+region = Rect2( 400, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 13 )
+region = Rect2( 480, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 13 )
+region = Rect2( 560, 592, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 13 )
+region = Rect2( 640, 592, 80, 74 )
+
 [sub_resource type="AtlasTexture" id=59]
 atlas = ExtResource( 13 )
 region = Rect2( 0, 296, 80, 74 )
@@ -178,76 +246,23 @@ region = Rect2( 320, 148, 80, 74 )
 atlas = ExtResource( 13 )
 region = Rect2( 400, 148, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=66]
-atlas = ExtResource( 13 )
-region = Rect2( 80, 0, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=67]
-atlas = ExtResource( 13 )
-region = Rect2( 160, 0, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=68]
-atlas = ExtResource( 13 )
-region = Rect2( 240, 0, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=69]
-atlas = ExtResource( 13 )
-region = Rect2( 320, 0, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=101]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=102]
-atlas = ExtResource( 13 )
-region = Rect2( 80, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=103]
-atlas = ExtResource( 13 )
-region = Rect2( 160, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=104]
-atlas = ExtResource( 13 )
-region = Rect2( 240, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=105]
-atlas = ExtResource( 13 )
-region = Rect2( 320, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=106]
-atlas = ExtResource( 13 )
-region = Rect2( 400, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=107]
-atlas = ExtResource( 13 )
-region = Rect2( 480, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=108]
-atlas = ExtResource( 13 )
-region = Rect2( 560, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=109]
-atlas = ExtResource( 13 )
-region = Rect2( 640, 592, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 74, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 13 )
-region = Rect2( 80, 74, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 13 )
-region = Rect2( 160, 74, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 13 )
-region = Rect2( 240, 74, 80, 74 )
-
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
+"frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ) ],
+"loop": false,
+"name": "Death",
+"speed": 12.0
+}, {
 "frames": [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ) ],
 "loop": false,
 "name": "Summon",
@@ -281,21 +296,6 @@ animations = [ {
 "frames": [ SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ) ],
 "loop": false,
 "name": "Slam",
-"speed": 8.0
-}, {
-"frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ) ],
-"loop": false,
-"name": "Death",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
-"loop": true,
-"name": "Walk",
 "speed": 8.0
 } ]
 
@@ -1118,6 +1118,9 @@ script = ExtResource( 10 )
 HP = 150.0
 max_speed = 120
 kill_points = 1500
+HP_easy = 120.0
+max_speed_easy = 100
+attack_cd_easy = 1.0
 dust_scene = ExtResource( 12 )
 
 [node name="FiniteStateMachine" parent="." index="0"]
