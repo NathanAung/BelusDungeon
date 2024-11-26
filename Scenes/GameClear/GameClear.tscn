@@ -361,6 +361,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PlayTime" type="Label" parent="CanvasLayer/Control"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -58.0
+margin_top = 248.0
+margin_right = 58.0
+margin_bottom = 263.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 6 )
+text = "Play Time: 00:00:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Difficulty" type="Label" parent="CanvasLayer/Control"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -60.0
+margin_top = 268.0
+margin_right = 60.0
+margin_bottom = 283.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 6 )
+text = "Difficulty: NORMAL"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PressSpace" type="Label" parent="CanvasLayer/Control"]
 visible = false
 anchor_left = 0.5

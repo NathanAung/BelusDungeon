@@ -81,6 +81,7 @@ func create_enemies(gen_type):
 	else:
 		enemy_number = rng.randi_range(2, 4)
 	#print(enemy_number)
+	room.enemies_in_room = enemy_number
 	
 	# indexes of taken_positions array occupied by enemies during spawning for debug
 	var taken_position_indexes = []
@@ -195,7 +196,7 @@ func create_boss():
 	var pos:Vector2 = Vector2(9,6)
 	var e_pos = Vector2(pos.x * DungeonGlobal.CELL_SIZE + room.grid_pos.x * DungeonGlobal.room_width, pos.y * DungeonGlobal.CELL_SIZE + room.grid_pos.y * DungeonGlobal.room_height)
 	var enemy = boss1.instance()
-	enemy.set_difficulty(MiscGlobal.game_difficulty)
+	#enemy.set_difficulty(MiscGlobal.game_difficulty)
 	enemy.position = e_pos
 	enemy.navigation = get_node(MiscGlobal.dungeon_node_path)
 	enemy.connect_signal(room)

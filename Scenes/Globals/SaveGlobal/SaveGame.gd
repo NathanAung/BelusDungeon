@@ -5,6 +5,7 @@ extends Resource
 
 const SAVE_GAME_BASE_PATH := "user://save"
 export var high_score := 0
+export var best_time:float = 0
 
 
 # Called when the node enters the scene tree for the first time.

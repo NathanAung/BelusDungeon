@@ -30,6 +30,10 @@ var player_Gold_limit:int = 1000
 # score
 var player_score_current:int = 0 setget _set_player_score
 var player_score_highest:int = 0
+# play time
+var play_time_current:float = 0
+var play_time_best:float = 0
+var play_timer_on:bool = false
 # dash count
 var player_DC_default:int = 1 #1
 export(int) var player_DC_current:int = player_DC_default
@@ -58,6 +62,13 @@ var in_menu:bool = true
 # Called when the node enters the scene tree for the first time.
 #func _ready():
 #	set_difficulty()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if play_timer_on:
+		play_time_current += delta
+		print(play_time_current)
 
 
 func _set_player_score(score):
@@ -93,11 +104,13 @@ func set_difficulty() -> void:
 # reset all player attributes
 func reset_player():
 	player_dead = false
-#	player_HP_max = player_HP_default
-#	player_HP_current = player_HP_default
-	set_difficulty()
+	player_HP_max = player_HP_default
+	player_HP_current = player_HP_default
+#	set_difficulty()
 	player_score_current = 0
-	keys_collected = 0
+	play_time_current = 0
+	#play_timer_on = false
+	keys_collected = 1
 	collected_power_ups = []
 	player_WS_current = player_WS_default
 	player_Gold_current = player_Gold_default

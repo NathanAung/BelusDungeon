@@ -4,7 +4,7 @@ extends Control
 # player node in main scene
 export(NodePath) var player_node_path = MiscGlobal.player_node_path
 onready var Player: KinematicBody2D = get_node(player_node_path)
-# UI nide
+# UI node
 export(NodePath) var UI_node_path = "/root/Main/PlayerUI/CanvasLayer"
 onready var UI_node = get_node(UI_node_path)
 var difficulty_menu
@@ -25,6 +25,7 @@ func _ready():
 	credits_menu = get_parent().get_node("CreditsMenu")
 	htp_menu = get_parent().get_node("HTPMenu")
 	htp_menu.last_menu = self
+	set_score_time()
 	$ButtonMenu/PlayBtn.grab_focus()
 
 
@@ -55,6 +56,14 @@ func start_game() -> void:
 	visible = false
 	UI_node.show_UI()
 	AudioGlobal.change_music(DungeonGlobal.room_type.normal)
+	PlayerGlobal.play_timer_on = true
+
+
+func set_score_time() -> void:
+	var score = "High Score: " + String(PlayerGlobal.player_score_highest)
+	var format_string = "%02d:%02d:%02d"
+	var play_time = "Best Time: " + format_string % [PlayerGlobal.play_time_best/60, fmod(PlayerGlobal.play_time_best, 60), fmod(PlayerGlobal.play_time_best, 1) * 100]
+	$ScoreTime.text = score + "\n" + play_time
 
 
 func _on_MainMenu_visibility_changed():
@@ -68,7 +77,6 @@ func _on_PlayBtn_pressed():
 	AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 	visible = false
 	difficulty_menu.visible = true
-
 
 
 func _on_OptionsBtn_pressed():

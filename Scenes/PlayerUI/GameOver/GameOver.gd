@@ -39,9 +39,13 @@ func game_over():
 		AudioGlobal.music_on_off(true, false)
 	if PlayerGlobal.player_score_current > PlayerGlobal.player_score_highest:
 		$FinalScore.text = "NEW HIGH SCORE: " + String(PlayerGlobal.player_score_current)
+		PlayerGlobal.player_score_highest = PlayerGlobal.player_score_current
 		SaveGlobal.save_game()
 	else:
 		$FinalScore.text = "Final Score: " + String(PlayerGlobal.player_score_current)
+	
+	var format_string = "%02d:%02d:%02d"
+	$PlayTime.text = "Play Time: " + format_string % [PlayerGlobal.play_time_current/60, fmod(PlayerGlobal.play_time_current, 60), fmod(PlayerGlobal.play_time_current, 1) * 100]
 	$AnimationPlayer.play("FadeIn")
 	AudioGlobal.music_on_off(false, true)
 
@@ -49,6 +53,7 @@ func game_over():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "FadeIn":
 		$FinalScore.visible = true
+		$PlayTime.visible = true
 		$InstructionText.visible = true
 		game_over = true
 	elif anim_name == "FadeOut":

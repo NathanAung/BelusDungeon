@@ -121,6 +121,7 @@ func special_attack() -> void:
 			$Hitbox.knockback_dir = player_dir
 			state_machine.set_state(state_machine.states.spinStart)
 			if weap_no == 3:
+				blocked_attack = false
 				var w = 3
 				while w == 3:
 					w = rng.randi_range(1, 4)
@@ -160,6 +161,7 @@ func weapon_special_attack() -> void:
 
 
 func activate_boss() -> void:
+	set_difficulty(MiscGlobal.game_difficulty)
 	$SpawnTimer.start()
 
 
@@ -577,3 +579,13 @@ func _on_SpecialEyes_animation_finished():
 	special_attack()
 	$SpecialEyes.playing = false
 	$SpecialEyes.frame = 0
+
+
+func set_difficulty(dif: int) -> void:
+	match dif:
+		1:
+			HP = HP_easy
+			attack_cd = attack_cd_easy
+			max_speed = max_speed_easy
+			$SpecialTimer.wait_time = 20
+			$DizzyTimer.wait_time = 8

@@ -54,7 +54,7 @@ func create_map():
 		map_room.position = Vector2(room.grid_pos.x * 12, room.grid_pos.y * 12)
 		
 		# hide the room initially
-		#map_room.hide()
+		map_room.hide()
 
 
 # move to the current room on the map

@@ -64,6 +64,7 @@ func _physics_process(delta):
 					Dungeon.can_pause = false
 					AudioGlobal.play_SFX(AudioGlobal.SFX_type.doorEnter)
 					Player.set_physics_process(false)
+					PlayerGlobal.play_timer_on = false
 					DungeonGlobal.game_clear()
 				# enter to next room
 				else:

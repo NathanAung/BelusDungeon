@@ -50,6 +50,7 @@ var traps = []
 var enemy_waves = 0
 var waves_left = 0
 var enemies = []
+var enemies_in_room:int = 0
 
 var four_pos = [Vector2(DungeonGlobal.room_width/2 - 40, DungeonGlobal.room_height/2 - 20),
 	Vector2(DungeonGlobal.room_width/2 + 40, DungeonGlobal.room_height/2 - 20),
@@ -391,9 +392,11 @@ func enable_room_enemies(enable:bool) -> void:
 # called by a signal in Enemy class, checks if there are enemies left in the room
 func check_enemies(enemy):
 	enemies.erase(enemy)
-	if not enemies:
+	enemies_in_room -= 1
+	if not enemies and enemies_in_room <= 0:
 		#print("no enemies left")
 		enemies = []
+		enemies_in_room = 0
 		waves_left -= 1
 		if waves_left > 0:
 			enemy_gen.create_enemies(0)

@@ -66,9 +66,14 @@ func _ready():
 		#current_room.open_doors(false)
 		print("Number of rooms: ", DungeonGlobal.number_of_rooms)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+#	if timer_on:
+#		play_time += delta
+#		print(play_time)
+
 
 func _input(event):
 	if event is InputEventKey:

@@ -43,10 +43,12 @@ func pause_game(pause):
 	self.visible = pause
 	
 	if pause:
+		PlayerGlobal.play_timer_on = false
 		# hover on the top option for WASD control
 		$ButtonMenu/ResumeBtn.grab_focus()
 		AudioGlobal.volume_db = AudioGlobal.bgm_volume_paused
 	else:
+		PlayerGlobal.play_timer_on = true
 		quit_menu.visible = false
 		options_menu.visible = false
 		htp_menu.visible = false

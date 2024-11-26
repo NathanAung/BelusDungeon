@@ -357,6 +357,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			state_machine.set_state(state_machine.states.revive)
 			playSFX(5)
 		else:
+			PlayerGlobal.play_timer_on = false
 			game_over_text.game_over()
 			Dungeon.current_room.call_deferred("enable_room_traps", false)
 			Dungeon.current_room.call_deferred("enable_room_enemies", false)

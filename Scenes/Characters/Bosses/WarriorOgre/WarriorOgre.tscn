@@ -110,29 +110,41 @@ region = Rect2( 400, 296, 80, 74 )
 atlas = ExtResource( 13 )
 region = Rect2( 480, 296, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=50]
+[sub_resource type="AtlasTexture" id=97]
 atlas = ExtResource( 13 )
-region = Rect2( 0, 370, 80, 74 )
+region = Rect2( 0, 518, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=51]
+[sub_resource type="AtlasTexture" id=98]
 atlas = ExtResource( 13 )
-region = Rect2( 80, 370, 80, 74 )
+region = Rect2( 80, 518, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=52]
+[sub_resource type="AtlasTexture" id=99]
 atlas = ExtResource( 13 )
-region = Rect2( 160, 370, 80, 74 )
+region = Rect2( 160, 518, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=53]
+[sub_resource type="AtlasTexture" id=80]
 atlas = ExtResource( 13 )
-region = Rect2( 240, 370, 80, 74 )
+region = Rect2( 0, 148, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=54]
+[sub_resource type="AtlasTexture" id=81]
 atlas = ExtResource( 13 )
-region = Rect2( 320, 370, 80, 74 )
+region = Rect2( 80, 148, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=55]
+[sub_resource type="AtlasTexture" id=82]
 atlas = ExtResource( 13 )
-region = Rect2( 400, 370, 80, 74 )
+region = Rect2( 160, 148, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=83]
+atlas = ExtResource( 13 )
+region = Rect2( 240, 148, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=84]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 148, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 13 )
+region = Rect2( 400, 148, 80, 74 )
 
 [sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 13 )
@@ -157,6 +169,42 @@ region = Rect2( 320, 222, 80, 74 )
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 13 )
 region = Rect2( 400, 222, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 444, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 13 )
+region = Rect2( 80, 444, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 444, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 370, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 13 )
+region = Rect2( 80, 370, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 370, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 13 )
+region = Rect2( 240, 370, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 370, 80, 74 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 13 )
+region = Rect2( 400, 370, 80, 74 )
 
 [sub_resource type="AtlasTexture" id=87]
 atlas = ExtResource( 13 )
@@ -198,54 +246,6 @@ region = Rect2( 880, 518, 80, 74 )
 atlas = ExtResource( 13 )
 region = Rect2( 960, 518, 80, 74 )
 
-[sub_resource type="AtlasTexture" id=97]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 518, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=98]
-atlas = ExtResource( 13 )
-region = Rect2( 80, 518, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=99]
-atlas = ExtResource( 13 )
-region = Rect2( 160, 518, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=56]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 444, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=57]
-atlas = ExtResource( 13 )
-region = Rect2( 80, 444, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=58]
-atlas = ExtResource( 13 )
-region = Rect2( 160, 444, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=80]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 148, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=81]
-atlas = ExtResource( 13 )
-region = Rect2( 80, 148, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=82]
-atlas = ExtResource( 13 )
-region = Rect2( 160, 148, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=83]
-atlas = ExtResource( 13 )
-region = Rect2( 240, 148, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=84]
-atlas = ExtResource( 13 )
-region = Rect2( 320, 148, 80, 74 )
-
-[sub_resource type="AtlasTexture" id=85]
-atlas = ExtResource( 13 )
-region = Rect2( 400, 148, 80, 74 )
-
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
@@ -268,35 +268,35 @@ animations = [ {
 "name": "Summon",
 "speed": 9.0
 }, {
-"frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
+"frames": [ SubResource( 97 ), SubResource( 98 ), SubResource( 99 ) ],
 "loop": false,
-"name": "SpinStart",
-"speed": 9.0
+"name": "DizzyStart",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ) ],
+"loop": false,
+"name": "Slam",
+"speed": 8.0
 }, {
 "frames": [ SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
 "loop": false,
 "name": "Dash",
 "speed": 9.0
 }, {
-"frames": [ SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ) ],
-"loop": true,
-"name": "Dizzy",
-"speed": 18.0
-}, {
-"frames": [ SubResource( 97 ), SubResource( 98 ), SubResource( 99 ) ],
-"loop": false,
-"name": "DizzyStart",
-"speed": 7.0
-}, {
 "frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
 "loop": true,
 "name": "Spin",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ) ],
+"frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
 "loop": false,
-"name": "Slam",
-"speed": 8.0
+"name": "SpinStart",
+"speed": 9.0
+}, {
+"frames": [ SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ) ],
+"loop": true,
+"name": "Dizzy",
+"speed": 18.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=21]
@@ -1118,9 +1118,8 @@ script = ExtResource( 10 )
 HP = 150.0
 max_speed = 120
 kill_points = 1500
-HP_easy = 120.0
+HP_easy = 100.0
 max_speed_easy = 100
-attack_cd_easy = 1.0
 dust_scene = ExtResource( 12 )
 
 [node name="FiniteStateMachine" parent="." index="0"]

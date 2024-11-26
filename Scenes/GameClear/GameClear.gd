@@ -3,7 +3,9 @@ extends Node2D
 
 #onready var win_text_anim:AnimationPlayer = get_node("CanvasLayer/Control/WinText/AnimationPlayer")
 onready var score_text:Label = get_node("CanvasLayer/Control/FinalScore")
+onready var time_text:Label = get_node("CanvasLayer/Control/PlayTime")
 onready var eng_text:Label = get_node("CanvasLayer/Control/EngText")
+onready var dif_text:Label = get_node("CanvasLayer/Control/Difficulty")
 #onready var label_text:Label = get_node("CanvasLayer/Control/WinText/InstructionText")
 onready var credits_text:Label = get_node("CanvasLayer/Control/Credits")
 onready var press_space_text:Label = get_node("CanvasLayer/Control/PressSpace")
@@ -37,7 +39,9 @@ func _unhandled_input(event):
 			elif score_text.visible:
 				$AnimationPlayer.play("FadeOut")
 				score_text.visible = false
+				time_text.visible = false
 				eng_text.visible = false
+				dif_text.visible = false
 				AudioGlobal.play_SFX(AudioGlobal.SFX_type.menu)
 				press_space_text.visible = false
 				$Timer.start()
@@ -55,9 +59,27 @@ func game_clear():
 	transition_white(false)
 	if PlayerGlobal.player_score_current > PlayerGlobal.player_score_highest:
 		score_text.text = "NEW HIGH SCORE: " + String(PlayerGlobal.player_score_current)
-		SaveGlobal.save_game()
+		PlayerGlobal.player_score_highest = PlayerGlobal.player_score_current
 	else:
 		score_text.text = "Final Score: " + String(PlayerGlobal.player_score_current)
+		
+	var format_string = "%02d:%02d:%02d"
+	if PlayerGlobal.play_time_current < PlayerGlobal.play_time_best or PlayerGlobal.play_time_best == 0:
+		print("Play Time: ", PlayerGlobal.play_time_current)
+		time_text.text = "NEW BEST TIME: " + format_string % [PlayerGlobal.play_time_current/60, fmod(PlayerGlobal.play_time_current, 60), fmod(PlayerGlobal.play_time_current, 1) * 100]
+		PlayerGlobal.play_time_best = PlayerGlobal.play_time_current
+	else:
+		#display current play time
+		print("Play Time: ", PlayerGlobal.play_time_current)
+		time_text.text = "Play Time: " + format_string % [PlayerGlobal.play_time_current/60, fmod(PlayerGlobal.play_time_current, 60), fmod(PlayerGlobal.play_time_current, 1) * 100]
+	
+	match MiscGlobal.game_difficulty:
+		0:
+			dif_text.text = "Difficulty: NORMAL"
+		1:
+			dif_text.text = "Difficulty: EASY"
+	
+	SaveGlobal.save_game()
 
 
 # canvas layer color rect
@@ -89,7 +111,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #			AudioGlobal.music_on_off(AudioGlobal.music_settings, false)
 	elif anim_name == "FadeIn":
 		score_text.visible = true
+		time_text.visible = true
 		eng_text.visible = true
+		dif_text.visible = true
 		fade_in_complete = true
 	elif anim_name == "FadeOut":
 		$AnimationPlayer.play("ShowCredits")

@@ -52,6 +52,7 @@ func _unhandled_input(event):
 		if event.scancode == KEY_R:
 			restart(false)
 		if event.scancode == KEY_I and !in_game_clear_scene:
+			PlayerGlobal.play_timer_on = false
 			game_clear()
 #		pass
 
@@ -116,6 +117,9 @@ func restart(back_to_menu):
 		var canvas = get_node(canvas_path)
 		canvas.get_node("PauseMenu").pause_game(false)
 	in_game_clear_scene = false
+	
+	if back_to_menu:
+		PlayerGlobal.play_timer_on = false
 
 
 # for restarting a floor if there's an error
