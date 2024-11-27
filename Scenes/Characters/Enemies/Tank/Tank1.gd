@@ -12,6 +12,8 @@ onready var eyes_anim:AnimationPlayer = get_node("Eyes/AnimationPlayer")
 var tired:bool = false
 var times_attacked:int
 export var max_attack_times:int = 4
+var times_received_damage:int = 0
+export var max_times_received_damage:int = 5
 # shield blocking
 var blocked_attack:bool = false
 
@@ -28,8 +30,8 @@ func _ready():
 		current_weapon.owner_tank = true
 		current_weapon.gHurtbox.set_physics_process(true)
 		# disable hurtbox while holding shield
-#		$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, false)
-#		$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, false)
+		$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, false)
+		$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, false)
 
 
 func _physics_process(delta):
@@ -65,8 +67,8 @@ func get_weapon() -> void:
 	current_weapon.pHurtbox.shield_owner = self
 	current_weapon.weapon_owner = self
 	current_weapon.owner_tank = true
-#	$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, false)
-#	$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, false)
+	$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, false)
+	$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, false)
 	
 
 
@@ -128,6 +130,7 @@ func check_tired() -> void:
 		blocked_attack = false
 		tired = true
 		times_attacked = 0
+		times_received_damage = 0
 		can_attack = false
 		state_machine.set_state(state_machine.states.tired)
 		$TiredTimer.start()
@@ -136,8 +139,32 @@ func check_tired() -> void:
 		weapons.call_deferred("remove_child", current_weapon)
 		current_weapon.queue_free()
 		current_weapon = null
-#		$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, true)
-#		$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, true)
+		$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, true)
+		$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, true)
+
+
+#check tired on receiving damage
+func check_tired_r() -> void:
+	times_received_damage += 1
+	print(times_received_damage)	
+	$RDmgTimer.start()
+	# enter tired state if attacked maximum times
+	if times_received_damage >= max_times_received_damage:
+		print("Tired")
+		blocked_attack = false
+		tired = true
+		times_received_damage = 0
+		times_attacked = 0
+		can_attack = false
+		state_machine.set_state(state_machine.states.tired)
+		$TiredTimer.start()
+		
+		# temporarily remove weapon during the tired state
+		weapons.call_deferred("remove_child", current_weapon)
+		current_weapon.queue_free()
+		current_weapon = null
+		$AnimatedSprite/Hurtbox.set_collision_mask_bit(2, true)
+		$AnimatedSprite/Hurtbox.set_collision_layer_bit(3, true)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -158,3 +185,9 @@ func _on_TiredTimer_timeout():
 	can_attack = true
 	get_weapon()
 	$TiredTimer.stop()
+
+
+func _on_RDmgTimer_timeout():
+	times_received_damage = 0
+	print(times_received_damage)
+	$RDmgTimer.stop()

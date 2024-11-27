@@ -68,7 +68,7 @@ var in_menu:bool = true
 func _process(delta):
 	if play_timer_on:
 		play_time_current += delta
-		print(play_time_current)
+		#print(play_time_current)
 
 
 func _set_player_score(score):

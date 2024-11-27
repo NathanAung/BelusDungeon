@@ -249,6 +249,9 @@ func take_damage(dmg: float, dir: Vector2, force: int) -> void:
 # check if the enemy is tired
 func check_tired() -> void:
 	pass
+	
+func check_tired_r() -> void:
+	pass
 
 
 func drop_weapon() -> void:

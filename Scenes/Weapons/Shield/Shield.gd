@@ -71,6 +71,7 @@ func pick_up(collecting_body) -> void:
 	weapon_owner = collecting_body
 	#print("Weapon owner is ", weapon_owner.name)
 	owner_player = true
+	owner_tank = false
 	colliding_body = null
 	if weapon_lvl == 2:
 		hitbox.damage = 1.5
@@ -92,6 +93,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			weapon_owner.attacking = false
 		elif owner_tank:
 			weapon_owner.check_tired()
+	elif anim_name == "Deflect":
+		if owner_tank:
+			weapon_owner.check_tired_r()
 	elif anim_name == "Special":
 		weapon_owner.can_attack = true
 		weapon_owner.attacking = false

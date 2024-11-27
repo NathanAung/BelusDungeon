@@ -67,7 +67,7 @@ func create_enemies(gen_type):
 						enemy_number = rng.randi_range(2, 4)
 					else:
 						enemy_number = rng.randi_range(3, 5)
-			#enemy_number = 1	# debug
+#			enemy_number = 1	# debug
 		elif DungeonGlobal.floor_level >= 2:
 			if room.enemy_waves > 1:
 				enemy_number = rng.randi_range(2, 4)
@@ -103,7 +103,7 @@ func create_enemies(gen_type):
 					1:
 						enemy_type = enemy_types.flying
 			
-			#enemy_type = enemy_types.tank 	# debug
+#			enemy_type = enemy_types.tank 	# debug
 			# ENEMY STRENGTH
 			match DungeonGlobal.floor_level:
 				2:

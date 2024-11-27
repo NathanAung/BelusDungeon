@@ -366,7 +366,9 @@ anims/Walk = SubResource( 20 )
 [node name="TiredTimer" type="Timer" parent="." index="6"]
 wait_time = 2.0
 
-[node name="Weapons" type="Node2D" parent="." index="7"]
+[node name="RDmgTimer" type="Timer" parent="." index="7"]
+
+[node name="Weapons" type="Node2D" parent="." index="8"]
 
 [node name="Shield" parent="Weapons" index="0" instance=ExtResource( 1 )]
 visible = false
@@ -374,7 +376,7 @@ visible = false
 [node name="Hitbox" parent="Weapons/Shield/Node2D/AnimatedSprite" index="0"]
 collision_mask = 4
 
-[node name="Eyes" parent="." index="8"]
+[node name="Eyes" parent="." index="9"]
 position = Vector2( 0, -28 )
 
 [node name="EyeL" parent="Eyes" index="0"]
@@ -384,6 +386,7 @@ offset = Vector2( -2, 0 )
 offset = Vector2( 4, 0 )
 
 [connection signal="timeout" from="TiredTimer" to="." method="_on_TiredTimer_timeout"]
+[connection signal="timeout" from="RDmgTimer" to="." method="_on_RDmgTimer_timeout"]
 [connection signal="animation_finished" from="Eyes/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Weapons/Shield"]
