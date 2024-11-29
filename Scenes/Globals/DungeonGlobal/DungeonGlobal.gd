@@ -43,18 +43,18 @@ export var floor_clear_points:int = 1000
 func _ready():
 	randomize()
 
-func _unhandled_input(event):
-	if event is InputEventKey and event.pressed and not event.echo:
-		# F to go to new floor
-#		if event.scancode == KEY_F:
-#			next_floor()
-		# R to restart
-		if event.scancode == KEY_R:
-			restart(false)
-		if event.scancode == KEY_I and !in_game_clear_scene:
-			PlayerGlobal.play_timer_on = false
-			game_clear()
-#		pass
+#func _unhandled_input(event):
+#	if event is InputEventKey and event.pressed and not event.echo:
+#		# F to go to new floor
+##		if event.scancode == KEY_F:
+##			next_floor()
+#		# R to restart
+#		if event.scancode == KEY_R:
+#			restart(false)
+#		if event.scancode == KEY_I and !in_game_clear_scene:
+#			PlayerGlobal.play_timer_on = false
+#			game_clear()
+##		pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

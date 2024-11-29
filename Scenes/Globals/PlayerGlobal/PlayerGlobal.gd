@@ -106,11 +106,11 @@ func reset_player():
 	player_dead = false
 	player_HP_max = player_HP_default
 	player_HP_current = player_HP_default
-#	set_difficulty()
+	set_difficulty()
 	player_score_current = 0
 	play_time_current = 0
 	#play_timer_on = false
-	keys_collected = 1
+	keys_collected = 0
 	collected_power_ups = []
 	player_WS_current = player_WS_default
 	player_Gold_current = player_Gold_default

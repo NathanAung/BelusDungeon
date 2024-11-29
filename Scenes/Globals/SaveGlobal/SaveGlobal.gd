@@ -25,5 +25,6 @@ func _create_or_load_save() -> void:
 func save_game() -> void:
 	_save.high_score = PlayerGlobal.player_score_highest
 	_save.best_time = PlayerGlobal.play_time_best
+	#_save.best_time = 0
 	_save.write_savegame()
 	print("saved", _save.high_score)
