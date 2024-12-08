@@ -80,9 +80,9 @@ func drop_item():
 	match obs_type:
 		obs_types.rock:
 			var k = 5
-			if MiscGlobal.game_difficulty == 1:
-				k = 4
-				#print("rock easy")
+#			if MiscGlobal.game_difficulty == 1:
+#				k = 5
+#				#print("rock easy")
 			for i in DungeonGlobal.floor_level - 1:
 				k = max(1, min(k, k - 2))
 			if rng.randi_range(0, k) == 0:
@@ -91,9 +91,9 @@ func drop_item():
 				gold.call_deferred("set_owner", Dungeon.current_room)
 				gold.global_position = position
 		obs_types.pot:
-			var k = 7
+			var k = 6
 			if MiscGlobal.game_difficulty == 1:
-				k = 6
+				k = 5
 				#print("pot easy")
 			for i in DungeonGlobal.floor_level - 1:
 				k = max(1, min(k, k - 2))

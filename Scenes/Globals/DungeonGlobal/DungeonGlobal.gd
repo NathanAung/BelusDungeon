@@ -101,7 +101,7 @@ func restart(back_to_menu):
 	DungeonGlobal.rooms = []
 	DungeonGlobal.taken_positions = []
 	# reset player
-	PlayerGlobal.reset_player()
+	PlayerGlobal.reset_player(back_to_menu)
 	
 	get_tree().change_scene("res://Scenes/Main/Main.tscn")
 	# restart the music

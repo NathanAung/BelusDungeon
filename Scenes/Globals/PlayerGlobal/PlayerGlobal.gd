@@ -102,11 +102,12 @@ func set_difficulty() -> void:
 
 
 # reset all player attributes
-func reset_player():
+func reset_player(back_to_menu):
 	player_dead = false
 	player_HP_max = player_HP_default
 	player_HP_current = player_HP_default
-	set_difficulty()
+	if !back_to_menu:
+		set_difficulty()
 	player_score_current = 0
 	play_time_current = 0
 	#play_timer_on = false

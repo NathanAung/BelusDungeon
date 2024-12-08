@@ -123,6 +123,7 @@ window/stretch/aspect="keep"
 vsync=false
 "v sync"=false
 background=false
+hdr=false
 
 [importer_defaults]
 

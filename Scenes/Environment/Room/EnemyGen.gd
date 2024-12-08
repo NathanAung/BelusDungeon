@@ -70,10 +70,14 @@ func create_enemies(gen_type):
 #			enemy_number = 1	# debug
 		elif DungeonGlobal.floor_level >= 2:
 			if room.enemy_waves > 1:
-				enemy_number = rng.randi_range(2, 4)
+				if MiscGlobal.game_difficulty == 1:
+					enemy_number = rng.randi_range(2, 3)
+				else:
+					enemy_number = rng.randi_range(2, 4)
+				#enemy_number = rng.randi_range(2, 4)
 			else:
 				if MiscGlobal.game_difficulty == 1:
-					enemy_number = rng.randi_range(3, 5)
+					enemy_number = rng.randi_range(2, 5)
 				else:
 					enemy_number = rng.randi_range(3, 6)
 #	elif gen_type == gen_types.boss1:

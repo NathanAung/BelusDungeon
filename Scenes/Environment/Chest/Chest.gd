@@ -106,15 +106,15 @@ func set_chest(type:int, room:Object):
 			elif DungeonGlobal.floor_level == 2:
 				if rng.randi_range(0,5) == 0:
 					item = ItemGlobal.lv3_weapons[weap_no].instance()
-				elif rng.randi_range(0,2) == 0:
-					item = ItemGlobal.lv2_weapons[weap_no].instance()
+#				elif rng.randi_range(0,2) == 0:
+#					item = ItemGlobal.lv2_weapons[weap_no].instance()
 				else:
-					item = ItemGlobal.lv1_weapons[weap_no].instance()
+					item = ItemGlobal.lv2_weapons[weap_no].instance()
 			else:
-				if rng.randi_range(0,2) == 0:
-					item = ItemGlobal.lv2_weapons[weap_no].instance()
-				else:
-					item = ItemGlobal.lv1_weapons[weap_no].instance()
+#				if rng.randi_range(0,2) == 0:
+#					item = ItemGlobal.lv2_weapons[weap_no].instance()
+#				else:
+				item = ItemGlobal.lv2_weapons[weap_no].instance()
 			item.on_floor = true
 		else:
 			#print("gold in chest")
