@@ -16,7 +16,7 @@ Zayar Aung、Sai Laung Linn、Paing Min Khant によって開発されたゲー�
 
 ## 🔗 各種リンク
 
-  [comment]: <> (- **プロジェクトポートフォリオ**： )
+- **プロジェクトポートフォリオ**： <a href= "https://drive.google.com/file/d/1rqiAOVL298tzrkDdo5BjGz67EGk9Xrhu/view?usp=sharing">見る</a>
 
 - **ゲーム情報ページとダウンロード**：<a href= "https://nathan-ag.itch.io/belus-dungeon">Itch.ioにて配信中</a>
 
