@@ -3,6 +3,8 @@
 Zayar Aung、Sai Laung Linn、Paing Min Khant によって開発されたゲーム作品　**『Belu's Dungeon』**　のリポジトリです。  
 リポジトリをご覧になる前に、必ずライセンスをご確認ください。
 
+<img src="https://img.itch.zone/aW1nLzE4MDEzNjcwLnBuZw==/original/c%2F6Dd%2B.png"/>
+
 ---
 
 ## 🛠 開発情報
