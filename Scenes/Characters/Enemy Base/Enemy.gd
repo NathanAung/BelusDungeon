@@ -118,7 +118,7 @@ func _get_path_to_player() -> void:
 	if global_position.distance_to(Player.global_position) > attack_distance:
 		#print("Enemy global pos = ", global_position, " Player global pos = ", Player.global_position)
 		path = navigation.get_simple_path(global_position, Player.global_position)
-		LineTest.points = path
+		_update_debug_line()
 		# temporarily disable physics process to avoid flipping
 		set_physics_process(false)
 	else:
@@ -144,6 +144,7 @@ func _get_path_astar() -> void:
 	if path.empty() and stuck:
 		print("a star path stuck, getting normal path")
 		_get_path_to_player()
+	_update_debug_line()
 
 
 # called when the character takes damage
@@ -191,3 +192,16 @@ func set_difficulty(dif: int) -> void:
 # timer set to not attack immediately after spawning
 func _on_SpawnTimer_timeout():
 	can_attack = true
+
+
+func _update_debug_line() -> void:
+	if LineTest == null:
+		return
+
+	LineTest.clear_points()
+
+	if path.empty():
+		return
+
+	for p in path:
+		LineTest.add_point(p)
